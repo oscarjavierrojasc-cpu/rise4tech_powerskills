@@ -1,26 +1,30 @@
-# Rise4TECH PowerSkills — Plataforma de Formación Asincrónica y No Lineal
+# Rise4TECH PowerSkills — Plataforma de Formación en Habilidades Clave
 
-Plataforma educativa abierta desarrollada en el marco del programa **Rise4TECH** (Fundación Capital) y la **Maestría en Enseñanza en Entornos Digitales (MEED)**.
+Plataforma educativa interactiva desarrollada para el programa **Rise4TECH** de **Fundación Capital**.
 
-- **Autoría Académica:** Óscar Javier Rojas
-- **Acompañamiento Pedagógico Digital:** Lore (Tutora virtual Rise4TECH)
-- **Licencia:** [Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.es)
+- **Acompañamiento Pedagógico Digital:** Lore (Tutora virtual y amiga digital de estudio 💜)
+- **Organización:** Fundación Capital
 
 ---
 
 ## 🧭 Visión Pedagógica y Arquitectura
 
-La plataforma implementa un enfoque de **aprendizaje asincrónico, autodirigido y no lineal**, permitiendo a las participantes transitar de manera flexible por los superpoderes formativos:
+La plataforma implementa un enfoque de **aprendizaje asincrónico, autodirigido y no lineal**, permitiendo a las participantes fortalecer a su propio ritmo sus habilidades socioemocionales y laborales:
 
-1. **Superpoder 1:** Autoconocimiento y Gestión Emocional
-2. **Superpoder 2:** Comunicación Asertiva
-3. **Superpoder 3:** Trabajo en Equipo y Colaboración
-4. **Superpoder 4:** Adaptabilidad y Resolución de Problemas
+1. **Superpoder 1:** Autoconocimiento y Autorregulación
+2. **Superpoder 2:** Comunicación Asertiva y Presencia
+3. **Superpoder 3:** Trabajo en Equipo y Cooperación
+4. **Superpoder 4:** Adaptabilidad y Resolución Crítica
 5. **Superpoder 5:** Empatía y Escucha Activa
-6. **Habilidades Plus:** Marca Personal, Hojas de Vida y Preparación para Entrevistas Laborales
+6. **Habilidades Plus:** Inserción Laboral, Hojas de Vida y Preparación para Entrevistas
 
 ### Principios de Diseño
-- **Estándar Visual "Pure White":** Inspirado en el sistema de diseño Apple (fondos limpios, jerarquía tipográfica precisa, alta legibilidad móvil).
-- **Recursos Educativos Abiertos (REA):** Todos los componentes están diseñados para su libre adopción, adaptación y redistribución con la debida atribución.
-- **Microlearning Interactivo:** Contenidos modulares con simuladores dialógicos, rúbricas formativas (marco Rebeca Anijovich) y fichas de memoria descargables.
-- **Persistencia en el Cliente:** Seguimiento de progreso en tiempo real mediante almacenamiento local (`localStorage`), garantizando privacidad y autonomía.
+- **Estándar Visual Pure White:** Diseño limpio, tipografía nítida y máxima legibilidad móvil inspirado en sistemas de diseño modernos.
+- **Microaprendizaje Aplicado:** Módulos ágiles con simuladores de situaciones cotidianas, retroalimentación formativa y fichas de síntesis descargables.
+- **Autonomía y Privacidad:** Progreso guardado directamente en el dispositivo de la estudiante (`localStorage`), garantizando privacidad y una experiencia sin fricciones.
+
+---
+
+<p align="center">
+  <sub>Desarrollado para la comunidad de participantes de Rise4TECH · Fundación Capital</sub>
+</p>

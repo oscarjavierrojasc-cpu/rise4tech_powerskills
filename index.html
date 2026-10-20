@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rise4TECH PowerSkills · Plataforma de Habilidades Socioemocionales y Laborales</title>
-  <meta name="description" content="Plataforma de formación asincrónica y no lineal en PowerSkills (Fundación Capital - Rise4TECH). Recursos Educativos Abiertos (REA) bajo licencia CC BY-SA 4.0.">
-  <meta name="author" content="Óscar Javier Rojas">
+  <title>Rise4TECH PowerSkills · Habilidades Socioemocionales y Laborales</title>
+  <meta name="description" content="Plataforma de formación interactiva en PowerSkills para el programa Rise4TECH de Fundación Capital.">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Tipografía Apple / Plus Jakarta Sans & Inter (idéntica al micrositio de Empatía) -->
+  <!-- Tipografía Apple / Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,7 +44,6 @@
       letter-spacing: -0.025em;
     }
 
-    /* Tarjetas Apple Pure White idénticas al micrositio */
     .apple-card {
       background: var(--card-surface);
       border-radius: 32px;
@@ -78,20 +76,11 @@
       transform: translateY(-2px) scale(1.03);
       box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.18), 0 6px 14px -2px rgba(0, 0, 0, 0.12);
     }
-    .dua-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.8125rem;
-      font-weight: 700;
-      padding: 0.4rem 0.85rem;
-      border-radius: 999px;
-    }
   </style>
 </head>
 <body class="flex flex-col justify-between selection:bg-purple-100 selection:text-purple-900">
 
-  <!-- ============ 1. HEADER INSTITUCIONAL MINIMALISTA (ESTILO APPLE DARK) ============ -->
+  <!-- ============ 1. HEADER INSTITUCIONAL ============ -->
   <header class="bg-[#1D1D1F] text-white sticky top-0 z-50 shadow-md">
     <div class="max-w-6xl mx-auto px-5 py-3.5 flex flex-wrap items-center justify-between gap-4">
       <div class="flex items-center gap-3">
@@ -103,21 +92,17 @@
           <div class="flex items-center gap-2">
             <span class="font-extrabold text-base sm:text-lg tracking-tight">Rise4TECH PowerSkills</span>
             <span class="hidden sm:inline-block text-[11px] font-bold uppercase tracking-wider bg-purple-900/60 text-purple-200 border border-purple-500/40 px-2.5 py-0.5 rounded-full">
-              Plataforma Abierta
+              Campus Digital
             </span>
           </div>
-          <p class="text-xs text-gray-300 font-medium">Fundación Capital &bull; Formación Asincrónica y No Lineal</p>
+          <p class="text-xs text-gray-300 font-medium">Fundación Capital &bull; Formación Flexible y Asincrónica</p>
         </div>
       </div>
 
-      <!-- Métricas y badges en Header -->
       <div class="flex items-center gap-2 sm:gap-3">
-        <span class="inline-flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full text-xs font-bold text-gray-200 border border-white/10">
+        <a href="#superpoderes" class="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3.5 py-1.5 rounded-full text-xs font-bold text-gray-200 border border-white/10 transition-colors">
           <i data-lucide="compass" class="w-3.5 h-3.5 text-purple-300"></i>
-          <span>Ruta Abierta</span>
-        </span>
-        <a href="#licencia" class="dua-chip bg-emerald-700/90 hover:bg-emerald-600 text-white transition-colors">
-          <i data-lucide="unlock" class="w-3.5 h-3.5"></i> CC BY-SA 4.0
+          <span>Explorar Módulos</span>
         </a>
       </div>
     </div>
@@ -133,29 +118,29 @@
         <!-- Columna de texto -->
         <div class="md:col-span-7 space-y-4">
           <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-purple-700 bg-purple-100/80 border border-purple-200 px-3.5 py-1.5 rounded-full">
-            <i data-lucide="sparkles" class="w-4 h-4"></i> Maestría en Enseñanza en Entornos Digitales (MEED)
+            <i data-lucide="sparkles" class="w-4 h-4"></i> Programa Rise4TECH
           </span>
 
           <h1 class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-5xl leading-[1.1] text-[#1D1D1F]">
-            Entrenamiento de <br>
+            Entrenamiento en <br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800">
               Habilidades Clave
             </span> para el Futuro
           </h1>
 
           <p class="text-base sm:text-lg text-[#424245] leading-relaxed">
-            Bienvenida al campus interactivo de PowerSkills. Una propuesta formativa basada en la autonomía pedagógica: avanza libremente por los <strong>5 Superpoderes socioemocionales</strong> y las <strong>Habilidades Plus</strong>, combinando rigor conceptual, simuladores dialógicos y retroalimentación formativa.
+            Bienvenida a la plataforma de entrenamiento PowerSkills. Diseñada para potenciar tu autonomía: avanza a tu ritmo por los <strong>5 Superpoderes socioemocionales</strong> y las <strong>Habilidades Laborales</strong>, mediante microlecciones interactivas, simuladores de situaciones reales y herramientas prácticas.
           </p>
 
-          <!-- Bloque de principios DUA & Asincronía -->
+          <!-- Bloque de principios de aprendizaje no lineal -->
           <div class="apple-subcard p-4 sm:p-5 border-l-4 border-l-purple-600 bg-purple-50/40 flex items-start gap-3">
             <div class="w-8 h-8 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 mt-0.5">
               <i data-lucide="shuffle" class="w-4 h-4"></i>
             </div>
             <div>
-              <strong class="text-sm sm:text-base font-bold text-[#1D1D1F] block">Ruta de Aprendizaje No Lineal</strong>
+              <strong class="text-sm sm:text-base font-bold text-[#1D1D1F] block">Ruta de Formación Flexible y No Lineal</strong>
               <p class="text-xs sm:text-sm text-[#515154] leading-relaxed">
-                No hay requisitos de orden. Elige la competencia que requieres fortalecer hoy; cada módulo es autónomo, autoevaluable y cuenta con su propia ficha de memoria descargable.
+                Tú decides por dónde comenzar según tus prioridades actuales. Cada módulo es autónomo, práctico y cuenta con su propia síntesis descargable para repasar cuando lo necesites.
               </p>
             </div>
           </div>
@@ -167,7 +152,7 @@
             <div class="w-64 h-64 sm:w-72 sm:h-72 bg-gradient-to-tr from-purple-200/50 to-indigo-100/50 rounded-full blur-2xl absolute -inset-2 pointer-events-none"></div>
             <img 
               src="./media/lore/superheroina_trans.png" 
-              alt="Lore, tutora virtual y guía pedagógica de Rise4TECH" 
+              alt="Lore, tutora virtual y amiga digital de estudio de Rise4TECH" 
               class="relative z-10 w-60 sm:w-72 object-contain drop-shadow-[0_18px_36px_rgba(124,58,237,0.28)]"
             >
           </div>
@@ -176,27 +161,27 @@
     </div>
   </div>
 
-  <!-- ============ 3. MALLA CURRICULAR DE SUPERPODERES ============ -->
+  <!-- ============ 3. MALLA CURRICULAR DE MÓDULOS ============ -->
   <main class="max-w-6xl mx-auto px-5 py-4 w-full flex-1">
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6" id="superpoderes">
       <div>
-        <h2 class="text-2xl sm:text-3xl font-black text-[#1D1D1F] tracking-tight">Módulos Formativos</h2>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#1D1D1F] tracking-tight">Módulos de Formación</h2>
         <p class="text-sm text-[#6E6E73]">Superpoderes Socioemocionales y Módulo de Inserción Laboral</p>
       </div>
       <div class="flex items-center gap-2 text-xs font-bold text-[#515154]">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>1 Módulo disponible · 5 Módulos en preparación colaborativa</span>
+        <span>Módulos de aprendizaje activo</span>
       </div>
     </div>
 
     <!-- Grid de tarjetas estilo Apple -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
 
       <!-- MODULO 5: EMPATÍA (ACTIVO Y COMPLETO) -->
       <div class="apple-card hover-lift p-7 flex flex-col justify-between border-2 border-purple-500/40 relative overflow-hidden bg-white">
         <div class="absolute top-4 right-4">
           <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-extrabold uppercase tracking-wide border border-emerald-200">
-            REA Disponible
+            Disponible
           </span>
         </div>
         <div>
@@ -206,16 +191,16 @@
           <span class="text-xs font-extrabold text-purple-700 uppercase tracking-wider block mb-1">Superpoder 5</span>
           <h3 class="text-xl sm:text-2xl font-black text-[#1D1D1F] mb-2 leading-snug">Empatía y Escucha Activa</h3>
           <p class="text-sm text-[#515154] leading-relaxed mb-6">
-            La ciencia y el arte de conectar. Neurobiología de neuronas espejo, niveles de Goleman, límites de Brené Brown y laboratorio de dilemas.
+            La ciencia y el arte de conectar. Aprende a mirar desde la ventana del otro, aplicar escucha activa y responder con asertividad en equipos reales.
           </p>
         </div>
         <div>
           <div class="pt-4 border-t border-black/5 flex items-center justify-between">
             <span class="text-xs font-bold text-gray-500 flex items-center gap-1">
-              <i data-lucide="clock" class="w-3.5 h-3.5"></i> 25 min · DUA
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i> 25 min · Interactivo
             </span>
             <a href="modulos/empatia/" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs sm:text-sm font-bold transition-all shadow-sm">
-              <span>Ingresar</span>
+              <span>Iniciar Módulo</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
           </div>
@@ -238,7 +223,7 @@
           <div class="pt-4 border-t border-black/5 flex items-center justify-between">
             <span class="text-xs font-semibold text-gray-400">Próximamente</span>
             <span class="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
-              En migración
+              En preparación
             </span>
           </div>
         </div>
@@ -260,7 +245,7 @@
           <div class="pt-4 border-t border-black/5 flex items-center justify-between">
             <span class="text-xs font-semibold text-gray-400">Próximamente</span>
             <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">
-              En migración
+              En preparación
             </span>
           </div>
         </div>
@@ -282,7 +267,7 @@
           <div class="pt-4 border-t border-black/5 flex items-center justify-between">
             <span class="text-xs font-semibold text-gray-400">Próximamente</span>
             <span class="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
-              En migración
+              En preparación
             </span>
           </div>
         </div>
@@ -304,7 +289,7 @@
           <div class="pt-4 border-t border-black/5 flex items-center justify-between">
             <span class="text-xs font-semibold text-gray-400">Próximamente</span>
             <span class="text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-200">
-              En migración
+              En preparación
             </span>
           </div>
         </div>
@@ -319,84 +304,29 @@
           <span class="text-xs font-extrabold text-indigo-700 uppercase tracking-wider block mb-1">Habilidades Plus</span>
           <h3 class="text-xl sm:text-2xl font-black text-[#1D1D1F] mb-2 leading-snug">Inserción Laboral y Marca Personal</h3>
           <p class="text-sm text-[#515154] leading-relaxed mb-6">
-            Hojas de vida de alto impacto, optimización de perfil LinkedIn, entrevistas situacionales y estrategia de posicionamiento profesional.
+            Hojas de vida de alto impacto, optimización de perfil profesional, entrevistas situacionales y preparación para el mercado laboral.
           </p>
         </div>
         <div>
           <div class="pt-4 border-t border-black/5 flex items-center justify-between">
             <span class="text-xs font-semibold text-gray-400">Próximamente</span>
             <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-200">
-              En migración
+              En preparación
             </span>
           </div>
         </div>
       </div>
 
     </div>
-
-    <!-- ============ 4. SECCIÓN OFICIAL DE LICENCIA CREATIVE COMMONS ============ -->
-    <section id="licencia" class="apple-subcard p-7 sm:p-9 border-l-8 border-l-emerald-600 bg-emerald-50/30 mb-8 shadow-sm">
-      <div class="flex flex-col sm:flex-row gap-6 items-start">
-        <div class="flex flex-row sm:flex-col items-center gap-3 flex-shrink-0">
-          <div class="w-14 h-14 rounded-2xl bg-[#1D1D1F] text-white icon-box-3d flex items-center justify-center shadow-lg">
-            <i data-lucide="creative-commons" class="w-8 h-8 text-white"></i>
-          </div>
-          <div class="flex items-center gap-2">
-            <div class="flex items-center gap-1.5 bg-[#1D1D1F] text-white px-3.5 py-1.5 rounded-xl text-xs font-black shadow-sm">
-              <i data-lucide="user" class="w-4 h-4"></i> BY
-            </div>
-            <div class="flex items-center gap-1.5 bg-[#1D1D1F] text-white px-3.5 py-1.5 rounded-xl text-xs font-black shadow-sm">
-              <i data-lucide="refresh-cw" class="w-4 h-4"></i> SA
-            </div>
-          </div>
-        </div>
-
-        <div class="space-y-4">
-          <div>
-            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-emerald-900 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300">
-              Licencia Abierta Internacional
-            </span>
-            <h3 class="font-black text-xl sm:text-2xl text-[#1D1D1F] mt-2">
-              Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)
-            </h3>
-          </div>
-
-          <p class="text-base sm:text-lg text-[#333336] leading-relaxed">
-            <strong>Autoría académica exclusiva:</strong> Óscar Javier Rojas.<br>
-            Usted es libre de <strong>compartir</strong> (copiar y redistribuir el material en cualquier medio o soporte) y <strong>adaptar</strong> (remezclar, transformar y construir a partir de este recurso para cualquier propósito educativo o formativo), bajo las siguientes condiciones:
-          </p>
-
-          <div class="grid md:grid-cols-2 gap-4 pt-1">
-            <div class="p-4 rounded-2xl bg-white border border-emerald-200 shadow-sm flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold">
-                <i data-lucide="user-check" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <strong class="text-base font-extrabold text-[#1D1D1F] block">Atribución (BY):</strong>
-                <p class="text-sm text-[#515154] leading-relaxed">Debe dar crédito de manera adecuada, brindar un enlace visible a la licencia e indicar si se han realizado modificaciones.</p>
-              </div>
-            </div>
-
-            <div class="p-4 rounded-2xl bg-white border border-emerald-200 shadow-sm flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold">
-                <i data-lucide="git-fork" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <strong class="text-base font-extrabold text-[#1D1D1F] block">CompartirIgual (SA):</strong>
-                <p class="text-sm text-[#515154] leading-relaxed">Si remezcla, transforma o crea a partir de este material, debe distribuir su contribución bajo la misma licencia del original.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- ============ 5. FOOTER INSTITUCIONAL ============ -->
-  <footer class="bg-white border-t border-black/5 py-8 mt-6">
-    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#6E6E73]">
-      <p>&copy; 2026 Fundación Capital &bull; Rise4TECH. Autoría académica: <strong>Óscar Javier Rojas</strong>.</p>
+  <!-- ============ 4. FOOTER DISCRETO ============ -->
+  <footer class="bg-white border-t border-black/5 py-8">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#6E6E73]">
+      <div>
+        <p>&copy; 2026 Fundación Capital &bull; Programa Rise4TECH. Todos los derechos reservados.</p>
+        <p class="text-[11px] text-gray-400 mt-1">Material formativo de libre uso y adaptación bajo licencia Creative Commons BY-SA 4.0.</p>
+      </div>
       <div class="flex items-center gap-2">
         <span class="font-semibold text-purple-700">Acompañamiento pedagógico: Lore 💜</span>
       </div>
