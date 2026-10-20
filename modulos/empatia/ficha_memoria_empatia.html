@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha de Memoria: Empatía — La Ciencia y el Arte de Conectar | REA</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tipografía Apple: SF Pro / Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --purewhite-bg: #F5F5F7;
+      --purewhite-card: #FFFFFF;
+      --purewhite-text: #1D1D1F;
+      --purewhite-subtext: #333336;
+      --purewhite-muted: #515154;
+      --apple-blue: #0071E3;
+      --apple-purple: #7C3AED;
+      --apple-emerald: #059669;
+      --apple-amber: #D97706;
+      --apple-rose: #E11D48;
+    }
+
+    /* REGLA DE ORO DE ACCESIBILIDAD: ESCALA TIPOGRÁFICA ACCESIBLE */
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Plus Jakarta Sans", "Inter", sans-serif;
+      background-color: var(--purewhite-bg);
+      color: var(--purewhite-text);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", sans-serif;
+      letter-spacing: -0.025em;
+    }
+
+    /* Tarjetas Apple Store Purewhite Respiradas */
+    .apple-card {
+      background: var(--purewhite-card);
+      border-radius: 28px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+      position: relative;
+    }
+
+    .apple-subcard {
+      background: #FBFBFD;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    /* Sombra 3D volumétrica táctil */
+    .icon-box-3d {
+      box-shadow: 0 8px 20px -3px rgba(0, 0, 0, 0.15), 0 3px 8px -2px rgba(0, 0, 0, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 12mm 10mm;
+    }
+
+    @media print {
+      body {
+        background-color: #FFFFFF !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        gap: 12px !important;
+      }
+      .apple-card {
+        box-shadow: none !important;
+        border: 1px solid #E5E7EB !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 12px !important;
+        padding: 18px 22px !important;
+      }
+      .apple-subcard {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .page-break {
+        break-before: page !important;
+        page-break-before: always !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="w-full max-w-[760px] mx-auto p-4 sm:p-8 flex flex-col gap-6">
+
+  <!-- 1. ENCABEZADO INSTITUCIONAL MINIMALISTA REA -->
+  <header class="apple-card px-7 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="w-13 h-13 p-3 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-md shadow-purple-500/25">
+        <i data-lucide="heart-handshake" class="w-7 h-7 text-white"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="font-black text-xl tracking-tight text-[#1D1D1F]">Empatía</span>
+          <span class="text-xs font-black uppercase tracking-wider bg-purple-100 text-purple-900 px-3 py-1 rounded-full border border-purple-200">
+            Ficha de Memoria · REA
+          </span>
+        </div>
+        <p class="text-sm sm:text-base text-[#515154] font-medium mt-0.5">Recurso Educativo Abierto · Habilidades Socioemocionales</p>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold bg-emerald-50 text-emerald-800 border border-emerald-200 px-3.5 py-1.5 rounded-full">
+        <i data-lucide="unlock" class="w-4 h-4"></i> CC BY-SA 4.0
+      </span>
+    </div>
+  </header>
+
+  <!-- 2. HERO: TÍTULO MONUMENTAL Y CITA CENTRAL -->
+  <section class="apple-card p-7 sm:p-8">
+    <div class="space-y-3">
+      <span class="inline-flex items-center gap-2 text-xs sm:text-sm font-black uppercase tracking-wider text-purple-800 bg-purple-100 px-3.5 py-1.5 rounded-full">
+        <i data-lucide="sparkles" class="w-4 h-4 text-purple-600"></i> Síntesis Conceptual Esencial
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black text-[#1D1D1F] leading-tight">
+        La Ciencia y el Arte de Conectar: <br>
+        <span class="text-purple-700">
+          Comprender los Mundos Invisibles
+        </span>
+      </h1>
+      <p class="text-base sm:text-lg text-[#333336] leading-relaxed font-medium">
+        «La empatía no es conectar con una experiencia idéntica a la tuya; es conectar con la emoción universal que subyace a esa experiencia».
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. PILAR 1: EL DILEMA DE LOS ZAPATOS AJENOS -->
+  <section class="apple-card p-7 space-y-5">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-3.5">
+        <div class="w-13 h-13 p-3 rounded-2xl bg-purple-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-md shadow-purple-600/30">
+          <i data-lucide="footprints" class="w-7 h-7"></i>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+          1. El Dilema de los Zapatos Ajenos
+        </h2>
+      </div>
+      <span class="text-xs sm:text-sm font-extrabold text-purple-800 bg-purple-100 px-3.5 py-1 rounded-full border border-purple-200">
+        Carl Rogers &amp; APA
+      </span>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <!-- Error -->
+      <div class="apple-subcard p-5 border-l-8 border-l-rose-500 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+            <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-rose-700">El Error Habitual</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-black text-[#1D1D1F] mb-1">
+            «Ponerse literalmente en sus zapatos»
+          </h3>
+          <p class="text-base text-[#333336] leading-relaxed">
+            Juzgar la vivencia de otra persona desde tus propios parámetros: <em>«Yo en tu lugar no me preocuparía tanto»</em>.
+          </p>
+        </div>
+        <p class="text-xs sm:text-sm font-bold text-rose-700 mt-3 pt-2 border-t border-black/5 flex items-center gap-1.5">
+          <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0 text-rose-600"></i>
+          <span>Consecuencia: Invalidación encubierta.</span>
+        </p>
+      </div>
+
+      <!-- Acierto -->
+      <div class="apple-subcard p-5 border-l-8 border-l-emerald-600 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-600"></span>
+            <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-800">El Acierto Empático</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-black text-[#1D1D1F] mb-1">
+            Mirar desde su propio marco
+          </h3>
+          <p class="text-base text-[#333336] leading-relaxed">
+            Reconocer que el otro habita un mundo propio, con biografías y presiones invisibles que tú no conoces ni juzgas.
+          </p>
+        </div>
+        <p class="text-xs sm:text-sm font-bold text-emerald-800 mt-3 pt-2 border-t border-black/5 flex items-center gap-1.5">
+          <i data-lucide="check-circle" class="w-4 h-4 shrink-0 text-emerald-700"></i>
+          <span>Clave: Respeto radical por su individualidad.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Cita Carl Rogers -->
+    <div class="p-5 rounded-2xl bg-purple-50/90 border border-purple-200 text-base sm:text-lg text-[#1D1D1F] font-bold flex items-center gap-3.5 shadow-sm">
+      <div class="w-10 h-10 rounded-xl bg-purple-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0">
+        <i data-lucide="quote" class="w-5 h-5 text-white"></i>
+      </div>
+      <span class="leading-relaxed">APA &amp; Carl Rogers: «La empatía es el arte de comprender a alguien desde su propia realidad y marco de referencia. Jamás desde el nuestro».</span>
+    </div>
+  </section>
+
+  <!-- 4. PILAR 2: LA BASE BIOLÓGICA (NEURONAS ESPEJO) -->
+  <section class="apple-card page-break p-7 space-y-4">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-3.5">
+        <div class="w-13 h-13 p-3 rounded-2xl bg-blue-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-md shadow-blue-600/30">
+          <i data-lucide="dna" class="w-7 h-7"></i>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+          2. La Base Neurobiológica: Las Neuronas Espejo
+        </h2>
+      </div>
+      <span class="text-xs sm:text-sm font-extrabold text-blue-800 bg-blue-100 px-3.5 py-1 rounded-full border border-blue-200">
+        Giacomo Rizzolatti (1990)
+      </span>
+    </div>
+
+    <div class="apple-subcard p-6 space-y-3">
+      <p class="text-base sm:text-lg text-[#333336] leading-relaxed">
+        Descubiertas en la corteza premotora, estas células se activan <strong>tanto al realizar una acción como al ver a otra persona realizarla o experimentar una emoción</strong>. Evolutivamente aseguraron nuestra supervivencia permitiéndonos descifrar en microsegundos el peligro, el dolor o la alegría en la tribu.
+      </p>
+
+      <div class="p-5 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-center shadow-sm">
+        <p class="text-lg sm:text-xl font-black text-blue-950 leading-snug">
+          «La empatía es la máxima expresión de la inteligencia biológica».
+        </p>
+        <span class="text-sm font-extrabold text-blue-800 mt-1 block">— David Bueno · Neurobiólogo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PILAR 3: EL ICEBERG INVISIBLE & LA REGLA DE ORO -->
+  <section class="apple-card p-7 space-y-5">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-3.5">
+        <div class="w-13 h-13 p-3 rounded-2xl bg-amber-500 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-md shadow-amber-500/30">
+          <i data-lucide="layers" class="w-7 h-7"></i>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+          3. El Iceberg de los Significados Invisibles
+        </h2>
+      </div>
+      <span class="text-xs sm:text-sm font-extrabold text-amber-900 bg-amber-100 px-3.5 py-1 rounded-full border border-amber-200">
+        El Caso del Cactus
+      </span>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <!-- Lo Visible -->
+      <div class="p-5 rounded-2xl bg-rose-50/80 border border-rose-200 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="w-3.5 h-3.5 rounded-full bg-rose-500 shadow-sm"></span>
+          <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-rose-700">Lo Visible (Superficie)</span>
+        </div>
+        <p class="text-base sm:text-lg font-bold text-[#1D1D1F] leading-snug pl-5">
+          Una planta que se secó, un botón que falló o una celda borrada en una hoja de cálculo.
+        </p>
+      </div>
+
+      <!-- Lo Invisible -->
+      <div class="p-5 rounded-2xl bg-emerald-50/80 border border-emerald-200 space-y-2">
+        <div class="flex items-center gap-2">
+          <span class="w-3.5 h-3.5 rounded-full bg-emerald-600 shadow-sm"></span>
+          <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-800">Lo Invisible (Profundidad)</span>
+        </div>
+        <p class="text-base sm:text-lg font-bold text-[#1D1D1F] leading-snug pl-5">
+          El último regalo de un abuelo, el miedo a perder el sustento o cuidar a un familiar enfermo.
+        </p>
+      </div>
+    </div>
+
+    <!-- Regla de Oro Monumental -->
+    <div class="p-6 rounded-2xl bg-gradient-to-r from-amber-50 via-amber-100/70 to-amber-50 border-2 border-amber-300 text-center space-y-2 shadow-sm">
+      <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-black uppercase tracking-widest text-amber-950 bg-amber-200 px-3.5 py-1 rounded-full shadow-sm">
+        <i data-lucide="star" class="w-4 h-4 fill-amber-500 text-amber-700"></i> Regla de Oro en la Vida y el Trabajo
+      </span>
+      <h3 class="text-xl sm:text-2xl font-black text-amber-950 leading-snug">
+        «Puedes no compartir el motivo de la otra persona, pero jamás tienes derecho a invalidar su emoción».
+      </h3>
+    </div>
+  </section>
+
+  <!-- 6. PILAR 4: LOS DOS ABISMOS & LA SABIDURÍA DEL «COMO SI» -->
+  <section class="apple-card p-7 space-y-5">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div class="flex items-center gap-3.5">
+        <div class="w-13 h-13 p-3 rounded-2xl bg-purple-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-md shadow-purple-600/30">
+          <i data-lucide="life-buoy" class="w-7 h-7"></i>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+          4. Los Dos Abismos &amp; la Sabiduría del «Como Si»
+        </h2>
+      </div>
+      <span class="text-xs sm:text-sm font-extrabold text-purple-800 bg-purple-100 px-3.5 py-1 rounded-full border border-purple-200">
+        Carl Rogers &amp; Brené Brown
+      </span>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-4">
+      <!-- Abismo 1 -->
+      <div class="p-5 rounded-2xl bg-rose-50/80 border border-rose-200 space-y-2 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-rose-700">Abismo 1</span>
+            <span class="text-xs font-bold text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full">Frialdad</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-black text-[#1D1D1F]">Minimización</h3>
+          <p class="text-sm sm:text-base text-[#424245] leading-relaxed"><em>«No te preocupes por pequeñeces, no es para tanto»</em>.</p>
+        </div>
+        <p class="text-xs sm:text-sm font-bold text-rose-700 pt-2 border-t border-black/5">Efecto: Desconexión y aislamiento.</p>
+      </div>
+
+      <!-- Abismo 2 -->
+      <div class="p-5 rounded-2xl bg-amber-50/80 border border-amber-200 space-y-2 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-amber-900">Abismo 2</span>
+            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full">Invasión</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-black text-[#1D1D1F]">Apropiación (Enmeshment)</h3>
+          <p class="text-sm sm:text-base text-[#424245] leading-relaxed"><em>«¡Qué tragedia, yo me muero si me pasa eso!»</em>.</p>
+        </div>
+        <p class="text-xs sm:text-sm font-bold text-amber-900 pt-2 border-t border-black/5">Efecto: Sobrecarga y manipulación.</p>
+      </div>
+
+      <!-- Cumbre empática -->
+      <div class="p-5 rounded-2xl bg-emerald-50 border-2 border-emerald-500/70 space-y-2 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-900">La Cumbre</span>
+            <span class="text-xs font-black text-emerald-950 bg-emerald-200 px-2.5 py-0.5 rounded-full">Presencia</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-black text-emerald-950">El «Como Si» de Rogers</h3>
+          <p class="text-sm sm:text-base text-emerald-950 leading-relaxed font-medium">Sentir la angustia ajena <em>como si</em> fuera tuya, sin perder tu anclaje.</p>
+        </div>
+        <p class="text-xs sm:text-sm font-bold text-emerald-800 pt-2 border-t border-black/5">Efecto: Apoyo seguro y sostenible.</p>
+      </div>
+    </div>
+
+    <!-- Metáforas en paralelo -->
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="p-5 rounded-2xl bg-white border border-black/10 text-base text-[#1D1D1F] flex items-start gap-3.5 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-blue-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-md">
+          <i data-lucide="anchor" class="w-5 h-5"></i>
+        </div>
+        <p class="leading-relaxed">
+          <strong class="text-blue-950 block text-base font-black">La Metáfora del Muelle:</strong>
+          Te paras firme en el muelle y lanzas una vara resistente. <strong>Tu estabilidad es lo que permite el rescate.</strong>
+        </p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-purple-50/90 border border-purple-200 text-base text-[#1D1D1F] flex items-start gap-3.5 shadow-sm">
+        <div class="w-10 h-10 rounded-2xl bg-purple-700 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-md">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i>
+        </div>
+        <p class="leading-relaxed">
+          <strong class="text-purple-950 block text-base font-black">Brené Brown (Hoyo vs. Orilla):</strong>
+          <em>«Empatía no es enmeshment: es permanecer entero en la orilla, haciéndole saber que no está solo».</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. PILAR 5: TRES ACCIONES EN EL TRABAJO & PREGUNTA HUMILDE -->
+  <section class="apple-card p-7 space-y-5">
+    <div class="flex items-center gap-3.5">
+      <div class="w-13 h-13 p-3 rounded-2xl bg-emerald-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-md shadow-emerald-600/30">
+        <i data-lucide="check-circle-2" class="w-7 h-7"></i>
+      </div>
+      <h2 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+        5. Tres Acciones Cotidianas para el Trabajo Colaborativo
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="apple-subcard p-5 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-purple-700 text-white font-black text-sm flex items-center justify-center icon-box-3d shadow-sm">1</div>
+        <h3 class="text-base font-black text-[#1D1D1F]">Exposición Consciente</h3>
+        <p class="text-sm sm:text-base text-[#424245] leading-relaxed">Interésate genuinamente por la historia de quien piensa o trabaja distinto a ti.</p>
+      </div>
+
+      <div class="apple-subcard p-5 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-indigo-700 text-white font-black text-sm flex items-center justify-center icon-box-3d shadow-sm">2</div>
+        <h3 class="text-base font-black text-[#1D1D1F]">Suspensión del Juicio</h3>
+        <p class="text-sm sm:text-base text-[#424245] leading-relaxed">Antes de calificar a un colega, haz una pausa: <em>«¿Qué estará viviendo que yo no veo?»</em>.</p>
+      </div>
+
+      <div class="apple-subcard p-5 space-y-2">
+        <div class="w-9 h-9 rounded-xl bg-emerald-700 text-white font-black text-sm flex items-center justify-center icon-box-3d shadow-sm">3</div>
+        <h3 class="text-base font-black text-[#1D1D1F]">Validar antes de Aconsejar</h3>
+        <p class="text-sm sm:text-base text-[#424245] leading-relaxed">Antes de formular un consejo: valida su esfuerzo y escucha con presencia honesta.</p>
+      </div>
+    </div>
+
+    <!-- La Pregunta Humilde de Schein -->
+    <div class="p-6 rounded-2xl bg-emerald-900 text-white shadow-lg space-y-2 border border-emerald-700">
+      <span class="text-xs font-black uppercase tracking-widest text-emerald-300 flex items-center gap-1.5">
+        <i data-lucide="sparkles" class="w-4 h-4 text-emerald-300"></i> La Pregunta Humilde de Edgar Schein:
+      </span>
+      <p class="text-xl sm:text-2xl font-black text-emerald-50 leading-snug">
+        «¿Qué forma debe tomar mi ayuda para que responda a tu necesidad?»
+      </p>
+    </div>
+  </section>
+
+  <!-- 8. REFLEXIÓN METACOGNITIVA -->
+  <section class="apple-card p-7 bg-gradient-to-br from-[#2E1065] via-[#3B0764] to-[#1E1B4B] text-white flex flex-col sm:flex-row items-center gap-6 shadow-xl border border-purple-500/30">
+    <div class="w-14 h-14 rounded-2xl bg-purple-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg icon-box-3d">
+      <i data-lucide="sparkles" class="w-7 h-7 text-white"></i>
+    </div>
+    <div class="space-y-1.5 text-center sm:text-left">
+      <p class="font-extrabold text-sm sm:text-base text-purple-200 tracking-wide uppercase">
+        Metacognición y Humanidad en la Era de la IA
+      </p>
+      <p class="text-base sm:text-lg text-purple-50 leading-relaxed font-medium">
+        Las máquinas y la inteligencia artificial podrán procesar volúmenes masivos de datos en microsegundos; pero la capacidad de conmoverse ante el mundo invisible del otro y tenderle la mano sin juzgarlo, sigue siendo la esencia irreemplazable de nuestra humanidad.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER INSTITUCIONAL REA -->
+  <footer class="pt-4 pb-6 border-t border-black/10 flex flex-col sm:flex-row items-center justify-between text-sm text-[#515154] font-semibold gap-3">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 rounded-lg bg-purple-600 text-white flex items-center justify-center font-bold text-xs">
+        <i data-lucide="heart" class="w-3.5 h-3.5"></i>
+      </div>
+      <span class="text-[#1D1D1F]">Empatía: La Ciencia y el Arte de Conectar · Recurso Educativo Abierto (REA)</span>
+    </div>
+    <span>Autoría: Óscar Javier Rojas · Licenciado bajo CC BY-SA 4.0</span>
+  </footer>
+
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

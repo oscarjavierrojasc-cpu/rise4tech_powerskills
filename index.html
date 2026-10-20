@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rise4TECH PowerSkills | Plataforma de Formación Socioemocional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #FAFAFC;
+      color: #1D1D1F;
+    }
+    .heading-font {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .apple-glass {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .card-clean {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 1.5rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-clean:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.06);
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-purple-100 selection:text-purple-900">
+
+  <!-- NAVEGACIÓN SUPERIOR PURE WHITE -->
+  <header class="sticky top-0 z-50 apple-glass">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center font-black text-xl shadow-md">
+          💜
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-purple-700 block">Fundación Capital &bull; Rise4TECH</span>
+          <h1 class="text-lg font-black tracking-tight text-[#1D1D1F] heading-font">PowerSkills Platform</h1>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#licencia" class="text-xs sm:text-sm font-semibold text-gray-600 hover:text-purple-700 transition-colors">
+          Licencia REA
+        </a>
+        <a href="#superpoderes" class="px-4 py-2 rounded-xl bg-[#1D1D1F] text-white text-xs sm:text-sm font-bold hover:bg-purple-700 transition-colors shadow-sm">
+          Explorar Módulos
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECCIÓN HERO DE BIENVENIDA -->
+  <main class="flex-1 max-w-6xl mx-auto px-6 py-12 w-full">
+    <section class="mb-14 text-center sm:text-left">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-bold mb-5">
+        <i data-lucide="sparkles" class="w-4 h-4"></i> Formación Asincrónica y No Lineal &bull; MEED
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-black text-[#1D1D1F] tracking-tight heading-font max-w-3xl leading-tight mb-5">
+        Desarrolla tus habilidades clave para el empleo y el futuro laboral
+      </h2>
+      <p class="text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed">
+        Bienvenida al campus abierto de PowerSkills. Elige libremente tu ruta de aprendizaje: explora los superpoderes formativos a tu propio ritmo mediante microlecciones, simuladores y recursos abiertos.
+      </p>
+    </section>
+
+    <!-- GRID DE SUPERPODERES (RUTAS NO LINEALES) -->
+    <section id="superpoderes" class="mb-16">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h3 class="text-2xl font-bold text-[#1D1D1F] heading-font">Módulos de Formación</h3>
+          <p class="text-sm text-gray-500">Selecciona el superpoder que desees activar o reforzar</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Superpoder 5: Empatía (Módulo Canónico Activo) -->
+        <div class="card-clean p-7 flex flex-col justify-between relative overflow-hidden border-2 border-purple-500/30">
+          <div class="absolute top-4 right-4">
+            <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-extrabold uppercase tracking-wide">
+              Disponible
+            </span>
+          </div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center mb-5 font-bold">
+              <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-purple-700 uppercase tracking-wider block mb-1">Superpoder 5</span>
+            <h4 class="text-xl font-black text-[#1D1D1F] mb-2 heading-font">Empatía y Escucha Activa</h4>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">
+              Aprende a conectar genuinamente, desactivar sesgos automáticos y aplicar escucha activa en entornos laborales.
+            </p>
+          </div>
+          <div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-500">REA Completo &bull; 45 min</span>
+              <a href="modulos/empatia/" class="inline-flex items-center gap-1.5 text-sm font-bold text-purple-700 hover:text-purple-900">
+                Iniciar módulo <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Superpoder 1: Autoconocimiento -->
+        <div class="card-clean p-7 flex flex-col justify-between opacity-80 hover:opacity-100">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center mb-5 font-bold">
+              <i data-lucide="compass" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-blue-700 uppercase tracking-wider block mb-1">Superpoder 1</span>
+            <h4 class="text-xl font-black text-[#1D1D1F] mb-2 heading-font">Autoconocimiento y Autorregulación</h4>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">
+              Identifica fortalezas, patrones de reacción y gestión emocional para proyectar tu mejor versión.
+            </p>
+          </div>
+          <div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-400">Próximamente</span>
+              <span class="text-xs font-bold text-gray-400">En desarrollo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Superpoder 2: Comunicación Asertiva -->
+        <div class="card-clean p-7 flex flex-col justify-between opacity-80 hover:opacity-100">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center mb-5 font-bold">
+              <i data-lucide="message-square-quote" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-teal-700 uppercase tracking-wider block mb-1">Superpoder 2</span>
+            <h4 class="text-xl font-black text-[#1D1D1F] mb-2 heading-font">Comunicación Asertiva</h4>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">
+              Expresa ideas y límites con claridad, firmeza y respeto sin caer en pasividad ni confrontación.
+            </p>
+          </div>
+          <div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-400">Próximamente</span>
+              <span class="text-xs font-bold text-gray-400">En desarrollo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Superpoder 3: Trabajo en Equipo -->
+        <div class="card-clean p-7 flex flex-col justify-between opacity-80 hover:opacity-100">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mb-5 font-bold">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-1">Superpoder 3</span>
+            <h4 class="text-xl font-black text-[#1D1D1F] mb-2 heading-font">Trabajo en Equipo y Cooperación</h4>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">
+              Colaboración efectiva, coordinación de tareas y sinergia orientada a metas compartidas.
+            </p>
+          </div>
+          <div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-400">Próximamente</span>
+              <span class="text-xs font-bold text-gray-400">En desarrollo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Superpoder 4: Adaptabilidad -->
+        <div class="card-clean p-7 flex flex-col justify-between opacity-80 hover:opacity-100">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center mb-5 font-bold">
+              <i data-lucide="zap" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-rose-700 uppercase tracking-wider block mb-1">Superpoder 4</span>
+            <h4 class="text-xl font-black text-[#1D1D1F] mb-2 heading-font">Adaptabilidad y Resolución</h4>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">
+              Flexibilidad cognitiva y resiliencia para responder con agilidad ante los cambios del entorno digital.
+            </p>
+          </div>
+          <div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-400">Próximamente</span>
+              <span class="text-xs font-bold text-gray-400">En desarrollo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Habilidades Plus: Inserción Laboral -->
+        <div class="card-clean p-7 flex flex-col justify-between opacity-80 hover:opacity-100">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center mb-5 font-bold">
+              <i data-lucide="briefcase" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-indigo-700 uppercase tracking-wider block mb-1">Habilidades Plus</span>
+            <h4 class="text-xl font-black text-[#1D1D1F] mb-2 heading-font">Inserción y Marca Personal</h4>
+            <p class="text-sm text-gray-600 leading-relaxed mb-6">
+              Diseño de CV de alto impacto, perfil digital y preparación estratégica para entrevistas reales.
+            </p>
+          </div>
+          <div>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-medium text-gray-400">Próximamente</span>
+              <span class="text-xs font-bold text-gray-400">En desarrollo</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE LICENCIA Y AUTORÍA ACADÉMICA -->
+    <section id="licencia" class="card-clean p-8 bg-emerald-50/40 border border-emerald-200/60 mb-12">
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <div class="w-14 h-14 rounded-2xl bg-[#1D1D1F] text-white flex items-center justify-center flex-shrink-0 shadow-md">
+          <i data-lucide="creative-commons" class="w-8 h-8"></i>
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-900 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300 inline-block mb-3">
+            Licencia Abierta Internacional
+          </span>
+          <h3 class="text-xl font-black text-[#1D1D1F] mb-2 heading-font">
+            Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)
+          </h3>
+          <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+            <strong>Autoría académica exclusiva:</strong> Óscar Javier Rojas.<br>
+            Plataforma diseñada como Recurso Educativo Abierto (REA) para el programa Rise4TECH (Fundación Capital) y la Maestría en Enseñanza en Entornos Digitales (MEED).
+          </p>
+          <p class="text-xs text-gray-500">
+            Libre para compartir y adaptar con la debida atribución y manteniendo la misma licencia en obras derivadas.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA SOBRIO -->
+  <footer class="border-t border-gray-200 bg-white py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+      <p>&copy; 2026 Fundación Capital &bull; Rise4TECH. Autoría académica: Óscar Javier Rojas.</p>
+      <div class="flex items-center gap-2">
+        <span>Acompañamiento pedagógico: Lore 💜</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

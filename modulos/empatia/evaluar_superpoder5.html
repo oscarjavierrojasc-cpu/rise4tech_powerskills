@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Rise4TECH · Valoración Superpoder 5: La Empatía</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --apple-bg: #0F0E17;
+      --card-bg: rgba(26, 21, 38, 0.92);
+      --purple-accent: #A786FF;
+      --emerald-accent: #10B981;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      background-color: var(--apple-bg);
+      color: #FFFFFE;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", sans-serif;
+    }
+
+    .gradient-purple {
+      background: linear-gradient(135deg, #7F5AF0 0%, #A786FF 50%, #FF8906 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(167, 134, 255, 0.22);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .pair-box {
+      background: rgba(15, 14, 23, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      transition: all 0.2s ease;
+    }
+
+    .pair-box:focus-within {
+      border-color: #A786FF;
+      box-shadow: 0 0 16px rgba(167, 134, 255, 0.25);
+    }
+
+    select, textarea, input {
+      font-size: 16px !important; /* Evita zoom automático en Safari iOS */
+    }
+
+    select {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A786FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.25rem;
+      appearance: none;
+    }
+
+    select:focus, textarea:focus {
+      outline: none;
+      border-color: #A786FF !important;
+      box-shadow: 0 0 14px rgba(167, 134, 255, 0.35);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 max-w-lg mx-auto relative pb-10">
+
+  <!-- BACKGROUND GLOWS -->
+  <div class="fixed -top-20 -left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-[100px] pointer-events-none"></div>
+  <div class="fixed -bottom-20 -right-20 w-72 h-72 bg-emerald-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <!-- HEADER INSTITUCIONAL -->
+  <header class="flex items-center justify-between py-4 border-b border-white/10 mb-6">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center font-black text-white shadow-md shadow-purple-500/30">
+        R4T
+      </div>
+      <div>
+        <h1 class="font-extrabold text-lg leading-tight">Rise4TECH</h1>
+        <span class="text-xs text-purple-400 font-semibold tracking-wider uppercase">Fundación Capital</span>
+      </div>
+    </div>
+    
+    <!-- BADGE DE LORE CON AVATAR OFICIAL -->
+    <div class="flex items-center gap-2 bg-purple-900/40 border border-purple-500/40 pl-1.5 pr-3 py-1 rounded-full text-purple-200 text-xs font-semibold shadow-sm">
+      <img 
+        src="/media/lore/lore_avatar_badge.png" 
+        alt="Lore Mentor" 
+        class="w-7 h-7 rounded-full object-cover border border-purple-400/60 bg-purple-950/60"
+      >
+      <span>Lore · Mentora</span>
+    </div>
+  </header>
+
+  <!-- FORM CONTAINER -->
+  <main id="form-section">
+    <!-- TARJETA DE BIENVENIDA DE LORE -->
+    <div class="mb-6 card-glass p-4 rounded-2xl flex items-center gap-4 border border-purple-500/30 bg-gradient-to-r from-purple-950/40 to-black/40">
+      <img 
+        src="/media/lore/saludando_trans.png" 
+        alt="Lore saludando" 
+        class="w-16 h-16 object-contain flex-shrink-0 drop-shadow-[0_4px_12px_rgba(127,90,240,0.5)]"
+      >
+      <div class="flex-1">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold uppercase mb-1">
+          <i data-lucide="sparkles" class="w-3 h-3"></i> Superpoder 5 · Final
+        </div>
+        <h2 class="text-lg font-extrabold text-white leading-tight">
+          <span class="gradient-purple">La Empatía en Acción</span>
+        </h2>
+        <p id="greeting" class="text-xs text-slate-300 mt-1 font-light leading-snug">
+          ¡Hola! Este es un espacio de honestidad reflexiva. Responde con calma para recibir tu feedback formativo personalizado en WhatsApp. 💜
+        </p>
+      </div>
+    </div>
+
+    <form id="assessment-form" class="space-y-6">
+      
+      <!-- ========================================== -->
+      <!-- PREGUNTA 1: EMPAREJAMIENTO (DOÑA MARTA)     -->
+      <!-- ========================================== -->
+      <div class="card-glass p-5 rounded-3xl space-y-4">
+        <div>
+          <span class="text-xs font-black text-purple-400 tracking-wider uppercase block mb-1">
+            Pregunta 1 de 3 · El Radar de Actitudes
+          </span>
+          <h3 class="text-base font-bold text-white leading-snug">
+            Atiendes la mesa de ayuda de una aplicación de entregas. Doña Marta, una comerciante de 58 años, está angustiada porque la plataforma le pide actualizar el token de seguridad, no sabe cómo hacerlo y lleva 20 minutos bloqueada sin poder despachar sus pedidos del mediodía.
+          </h3>
+          <p class="text-xs text-purple-300 mt-2 font-medium bg-purple-950/40 p-2.5 rounded-xl border border-purple-500/30">
+            🎯 <strong>Tu misión:</strong> Relaciona cada una de las 4 posibles respuestas con la actitud psicológica que le corresponde.
+          </p>
+        </div>
+
+        <div class="space-y-3.5">
+          <!-- PAR A -->
+          <div class="pair-box p-3.5 space-y-2">
+            <div class="flex items-start gap-2 text-sm text-slate-200">
+              <span class="font-black text-purple-400">A.</span>
+              <p class="italic font-medium leading-snug">«Doña Marta, tranquila, mire lo fácil que es, en 10 segundos le dejé el token actualizado. A la próxima no se complique por eso».</p>
+            </div>
+            <select name="pareja_a" required class="w-full p-3 rounded-xl bg-black/60 border border-purple-500/40 text-purple-100 font-semibold cursor-pointer">
+              <option value="" disabled selected>👉 Selecciona la actitud...</option>
+              <option value="apropiacion">Apropiación dramática</option>
+              <option value="intolerancia">Intolerancia e indiferencia</option>
+              <option value="minimizacion">Minimización y juicio</option>
+              <option value="validacion">Validación empática</option>
+            </select>
+          </div>
+
+          <!-- PAR B -->
+          <div class="pair-box p-3.5 space-y-2">
+            <div class="flex items-start gap-2 text-sm text-slate-200">
+              <span class="font-black text-purple-400">B.</span>
+              <p class="italic font-medium leading-snug">«¡Ay, doña Marta, qué horror con eso de los tokens! Este sistema de verdad que algunas veces es una tragedia horrible. Yo siento que me muero cada vez que me pasa con mis clientes».</p>
+            </div>
+            <select name="pareja_b" required class="w-full p-3 rounded-xl bg-black/60 border border-purple-500/40 text-purple-100 font-semibold cursor-pointer">
+              <option value="" disabled selected>👉 Selecciona la actitud...</option>
+              <option value="validacion">Validación empática</option>
+              <option value="minimizacion">Minimización y juicio</option>
+              <option value="apropiacion">Apropiación dramática</option>
+              <option value="intolerancia">Intolerancia e indiferencia</option>
+            </select>
+          </div>
+
+          <!-- PAR C -->
+          <div class="pair-box p-3.5 space-y-2">
+            <div class="flex items-start gap-2 text-sm text-slate-200">
+              <span class="font-black text-purple-400">C.</span>
+              <p class="italic font-medium leading-snug">«Doña Marta, comprendo perfectamente su angustia por los pedidos del mediodía de su negocio; para usted cada minuto cuenta. Vamos a resolverlo juntas paso a paso: dígame qué ve en su pantalla en este instante y yo la guío».</p>
+            </div>
+            <select name="pareja_c" required class="w-full p-3 rounded-xl bg-black/60 border border-purple-500/40 text-purple-100 font-semibold cursor-pointer">
+              <option value="" disabled selected>👉 Selecciona la actitud...</option>
+              <option value="intolerancia">Intolerancia e indiferencia</option>
+              <option value="validacion">Validación empática</option>
+              <option value="minimizacion">Minimización y juicio</option>
+              <option value="apropiacion">Apropiación dramática</option>
+            </select>
+          </div>
+
+          <!-- PAR D -->
+          <div class="pair-box p-3.5 space-y-2">
+            <div class="flex items-start gap-2 text-sm text-slate-200">
+              <span class="font-black text-purple-400">D.</span>
+              <p class="italic font-medium leading-snug">«Doña Marta, según el manual de seguridad informática artículo 4, el token es un requisito normativo obligatorio. Lo siento pero no puedo hacer más, por favor consulte el videotutorial en el portal de autoservicio».</p>
+            </div>
+            <select name="pareja_d" required class="w-full p-3 rounded-xl bg-black/60 border border-purple-500/40 text-purple-100 font-semibold cursor-pointer">
+              <option value="" disabled selected>👉 Selecciona la actitud...</option>
+              <option value="minimizacion">Minimización y juicio</option>
+              <option value="apropiacion">Apropiación dramática</option>
+              <option value="intolerancia">Intolerancia e indiferencia</option>
+              <option value="validacion">Validación empática</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- PREGUNTA 2: DILEMA DE ANDREA Y JULIÁN      -->
+      <!-- ========================================== -->
+      <div class="card-glass p-5 rounded-3xl space-y-3">
+        <span class="text-xs font-black text-purple-400 tracking-wider uppercase block">
+          Pregunta 2 de 3 · Dilema en el Equipo
+        </span>
+        <h3 class="text-base font-bold text-white leading-snug">
+          En tu equipo de ventas y envíos, tu compañera Andrea comete un error al digitar el inventario y bloquea 40 pedidos. El líder de turno le llama la atención en privado, pero al volver al puesto, Andrea se sienta, se le quiebra la voz y empieza a llorar en silencio. Julián, otro compañero del equipo, te susurra al oído: <br>
+          <span class="italic text-slate-300 block my-1 pl-3 border-l-2 border-rose-500">«Uy, qué exagerada es Andrea. A todos nos han regañado alguna vez y no nos ponemos a hacer drama por 40 pedidos. Que respire y se ponga a trabajar que hay mucho que hacer».</span>
+        </h3>
+        <p class="text-sm font-semibold text-emerald-300">
+          ¿Qué respuesta tuya hacia Julián y hacia Andrea refleja la verdadera madurez empática según los conceptos que aprendimos en el video de la lección?
+        </p>
+
+        <textarea 
+          name="respuesta_q2" 
+          rows="4" 
+          required 
+          placeholder="Escribe aquí tu respuesta: qué le dirías o cómo actuarías con Julián, y qué le dirías o cómo apoyarías a Andrea..."
+          class="w-full p-3.5 rounded-2xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm leading-relaxed"
+        ></textarea>
+        <span class="text-[11px] text-slate-400 block text-right font-medium">Recuerda aplicar el «como si» y el respeto al mundo invisible del otro.</span>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- PREGUNTA 3: HONESTIDAD REFLEXIVA           -->
+      <!-- ========================================== -->
+      <div class="card-glass p-5 rounded-3xl space-y-3">
+        <span class="text-xs font-black text-purple-400 tracking-wider uppercase block">
+          Pregunta 3 de 3 · Autodiagnóstico Honesto
+        </span>
+        <h3 class="text-base font-bold text-white leading-snug">
+          Piensa en una situación reciente (en tu trabajo, en tu familia o en tus estudios) donde alguien cercano a ti reaccionó con mucha frustración o tristeza por algo que a ti te parecía «una simpleza» o «algo elemental y súper fácil de resolver».
+        </h3>
+        <p class="text-sm font-semibold text-purple-200">
+          Con honestidad reflexiva, escribe: ¿cuál fue tu reacción inicial? <br>
+          <span class="text-xs text-slate-300 font-normal block mt-1">
+            (¿Minimización y juicio, apropiación dramática, validación empática, o intolerancia e indiferencia? Cuéntanos qué pasó brevemente).
+          </span>
+        </p>
+
+        <textarea 
+          name="respuesta_q3" 
+          rows="4" 
+          required 
+          placeholder="Cuéntanos brevemente la situación y qué actitud reconoces con sinceridad que tuviste en ese momento..."
+          class="w-full p-3.5 rounded-2xl bg-black/50 border border-white/15 text-white placeholder-slate-400 text-sm leading-relaxed"
+        ></textarea>
+        <span class="text-[11px] text-emerald-400 block font-medium flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          Zona segura y libre de juicios: equivocarse y reconocerlo es el primer paso para crecer.
+        </span>
+      </div>
+
+      <!-- BOTÓN DE ENVÍO -->
+      <button 
+        type="submit" 
+        id="submit-btn"
+        class="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-emerald-600 text-white font-black text-base shadow-lg shadow-purple-600/30 hover:shadow-purple-600/50 hover:scale-[1.01] active:scale-[0.99] transition flex items-center justify-center gap-2 cursor-pointer"
+      >
+        <span>Enviar mi Valoración</span>
+        <i data-lucide="send" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center justify-center gap-2 text-center text-xs text-slate-400 mt-2">
+        <img 
+          src="/media/lore/evaluando_trans.png" 
+          alt="Lore evaluando" 
+          class="w-5 h-5 object-contain"
+        >
+        <span>Al enviar, Lore procesará tus respuestas para darte feedback en WhatsApp. 💜</span>
+      </div>
+    </form>
+  </main>
+
+  <!-- SUCCESS SECTION (OCULTA POR DEFECTO) -->
+  <section id="success-section" class="hidden my-auto text-center py-10">
+    <div class="relative w-24 h-24 mx-auto mb-6">
+      <div class="w-24 h-24 bg-emerald-500/20 border border-emerald-500/40 rounded-full flex items-center justify-center text-emerald-400 shadow-[0_0_30px_rgba(52,211,153,0.3)] animate-bounce">
+        <i data-lucide="check-circle" class="w-12 h-12"></i>
+      </div>
+      <img 
+        src="/media/lore/celebrando_trans.png" 
+        alt="Lore celebrando" 
+        class="w-16 h-16 object-contain absolute -bottom-2 -right-2 drop-shadow-lg"
+      >
+    </div>
+    <h2 class="text-3xl font-extrabold text-white mb-3">¡Valoración Recibida! 🌟</h2>
+    <p class="text-slate-300 text-base max-w-sm mx-auto mb-6 leading-relaxed">
+      Tus reflexiones han sido registradas exitosamente en tu progreso de Rise4TECH.
+    </p>
+    <div class="card-glass p-5 rounded-2xl mb-6 max-w-sm mx-auto border border-purple-500/40 bg-purple-950/30">
+      <p class="text-sm text-purple-200 font-medium mb-3">
+        👉 Para activar de inmediato a Lore y recibir tu análisis formativo personalizado en tu chat, toca el siguiente botón:
+      </p>
+      <a 
+        href="https://wa.me/573246412767?text=Lore%2C%20ya%20envi%C3%A9%20mi%20valoraci%C3%B3n." 
+        id="back-whatsapp-btn"
+        class="inline-flex items-center justify-center w-full gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black px-6 py-4 rounded-xl shadow-lg shadow-emerald-600/40 transition transform active:scale-95 text-base"
+      >
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <span>Recibir mi retroalimentación 💜</span>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons();
+
+    // Obtener parámetros de la URL (?phone=573003676876&name=Oscar)
+    const urlParams = new URLSearchParams(window.location.search);
+    const phone = urlParams.get('phone') || urlParams.get('p') || '';
+    const name = urlParams.get('name') || urlParams.get('n') || '';
+
+    if (name) {
+      document.getElementById('greeting').innerHTML = `¡Hola <strong>${name}</strong>! Este es un espacio de honestidad reflexiva. Responde con calma para recibir tu feedback formativo personalizado en WhatsApp. 💜`;
+    }
+
+    // Manejo de envío del formulario
+    const form = document.getElementById('assessment-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!phone) {
+        alert('Por favor accede desde el enlace de WhatsApp que contiene tu identificador único.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Procesando y enviando...</span>
+      `;
+
+      const formData = new FormData(form);
+      const payload = {
+        phone: phone,
+        name: name,
+        flow_token: `flow_token_superpoder5_empatia_web_${Date.now()}`,
+        flow_name: "Valoración Superpoder 5 La Empatia Web",
+        pareja_a: formData.get('pareja_a'),
+        pareja_b: formData.get('pareja_b'),
+        pareja_c: formData.get('pareja_c'),
+        pareja_d: formData.get('pareja_d'),
+        respuesta_q2: formData.get('respuesta_q2'),
+        respuesta_q3: formData.get('respuesta_q3')
+      };
+
+      try {
+        const response = await fetch('/api/assessment/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const resData = await response.json();
+
+        if (response.ok) {
+          document.getElementById('form-section').classList.add('hidden');
+          document.getElementById('success-section').classList.remove('hidden');
+          
+          if (name) {
+            const cleanName = encodeURIComponent(name);
+            document.getElementById('back-whatsapp-btn').href = `https://wa.me/573246412767?text=Lore%2C%20ya%20envi%C3%A9%20mi%20valoraci%C3%B3n%20del%20Superpoder%205%20(%20${cleanName}%20).`;
+          }
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          alert('Error al enviar la valoración: ' + (resData.message || 'Intenta de nuevo'));
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `<span>Enviar mi Valoración</span><i data-lucide="send" class="w-5 h-5"></i>`;
+          lucide.createIcons();
+        }
+      } catch (err) {
+        alert('Error de conexión al enviar la valoración. Revisa tu internet.');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Enviar mi Valoración</span><i data-lucide="send" class="w-5 h-5"></i>`;
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

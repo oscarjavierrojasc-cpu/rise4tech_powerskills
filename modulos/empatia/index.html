@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REA · Empatía: La Ciencia y el Arte de Conectar · Habilidades Socioemocionales</title>
+<meta name="description" content="Recurso Educativo Abierto (REA) interactivo sobre la empatía: neurociencia, niveles de Goleman, la distinción empatía vs. enmeshment de Brené Brown, y laboratorio de dilemas con retroalimentación inmediata. Licencia CC BY-SA 4.0.">
+<meta name="author" content="Óscar Javier Rojas">
+<meta name="keywords" content="empatía, REA, DUA, habilidades socioemocionales, neuronas espejo, Brené Brown, Goleman, educación abierta, CC BY-SA">
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Tipografía Apple / Plus Jakarta Sans & Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+  :root {
+    --ink: #1D1D1F;
+    --ink-soft: #424245;
+    --muted: #6E6E73;
+    --purple-deep: #5B21B6;
+    --purple-primary: #7C3AED;
+    --purple-soft: #A786FF;
+    --emerald-accent: #059669;
+    --bg-canvas: #F5F5F7;
+    --card-surface: #FFFFFF;
+  }
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Plus Jakarta Sans", sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4, .font-heading {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  /* Tarjetas Apple Purewhite */
+  .apple-card {
+    background: var(--card-surface);
+    border-radius: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+  }
+  .apple-subcard {
+    background: #FBFBFD;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  .fluid-badge {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+  }
+
+  /* Diapositivas / Páginas autónomas */
+  .slide-page {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(12px) scale(0.995);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .slide-page.active {
+    visibility: visible;
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Barra de progreso de 5 pasos */
+  .step-pill {
+    transition: all 0.25s ease;
+  }
+  .step-pill.active {
+    background-color: #1D1D1F;
+    color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  }
+
+  /* Opciones de dilemas interactivos */
+  .opt-btn {
+    border: 2.5px solid rgba(0, 0, 0, 0.08);
+    background: #FFFFFF;
+    transition: all 0.2s ease;
+  }
+  .opt-btn:hover {
+    border-color: #7C3AED;
+    background: #FAF5FF;
+    transform: translateY(-1px);
+  }
+  .opt-btn.state-correct {
+    border-color: #059669 !important;
+    background: #ECFDF5 !important;
+  }
+  .opt-btn.state-wrong {
+    border-color: #DC2626 !important;
+    background: #FEF2F2 !important;
+  }
+
+  .dua-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+  }
+
+  /* Efecto 3D táctil con sombra volumétrica para contenedores de íconos */
+  .icon-box-3d {
+    box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .icon-box-3d:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.18), 0 6px 14px -2px rgba(0, 0, 0, 0.12);
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid #7C3AED;
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body class="flex flex-col justify-between">
+
+<!-- ============ 1. HEADER INSTITUCIONAL MINIMALISTA REA ============ -->
+<header class="bg-[#1D1D1F] text-white sticky top-0 z-50 shadow-md">
+  <div class="max-w-6xl mx-auto px-5 py-3.5 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <!-- Isotipo universal de conexión humana -->
+      <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center font-black text-white shadow-md shadow-purple-500/25 flex-shrink-0">
+        <i data-lucide="heart-handshake" class="w-6 h-6 text-white"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="font-extrabold text-base sm:text-lg tracking-tight">Empatía: La Ciencia y el Arte de Conectar</span>
+          <span class="hidden sm:inline-block text-[11px] font-bold uppercase tracking-wider bg-purple-900/60 text-purple-200 border border-purple-500/40 px-2.5 py-0.5 rounded-full">
+            REA Interactivo
+          </span>
+        </div>
+        <p class="text-xs text-gray-300 font-medium">Recurso Educativo Abierto · Habilidades Socioemocionales</p>
+      </div>
+    </div>
+    
+    <!-- Contador de avance de diapositivas, Tiempo & Licencia -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <span class="inline-flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full text-xs font-bold text-gray-200 border border-white/10" title="Tiempo de dedicación estimado">
+        <i data-lucide="clock" class="w-3.5 h-3.5 text-purple-300"></i>
+        <span>25 min</span>
+      </span>
+      <div class="bg-white/10 px-3.5 py-1.5 rounded-full text-xs font-extrabold tracking-wider font-mono text-purple-200 border border-white/10">
+        <span id="slideCounterText">PÁGINA 1 DE 5</span>
+      </div>
+      <span class="dua-chip bg-emerald-700/90 text-white hidden sm:inline-flex">
+        <i data-lucide="unlock" class="w-3.5 h-3.5"></i> CC BY-SA 4.0
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 2. BARRA DE NAVEGACIÓN SUPERIOR (5 PÁGINAS) ============ -->
+<div class="max-w-6xl mx-auto px-5 pt-4 w-full">
+  <div class="apple-card p-2 px-3 flex flex-wrap items-center justify-between gap-2 shadow-sm">
+    <!-- Migas de pan / Botones de salto directo -->
+    <nav class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold" aria-label="Pasos de la presentación">
+      <button class="step-pill active px-3.5 py-2 rounded-xl border border-black/5 flex items-center gap-1.5" data-goto="1">
+        <span>1. Apertura</span>
+      </button>
+      <button class="step-pill px-3.5 py-2 rounded-xl border border-black/5 flex items-center gap-1.5 text-[#515154] hover:text-purple-700" data-goto="2">
+        <span>2. Video</span>
+      </button>
+      <button class="step-pill px-3.5 py-2 rounded-xl border border-black/5 flex items-center gap-1.5 text-[#515154] hover:text-purple-700" data-goto="3">
+        <span>3. Conceptos</span>
+      </button>
+      <button class="step-pill px-3.5 py-2 rounded-xl border border-black/5 flex items-center gap-1.5 text-[#515154] hover:text-purple-700" data-goto="4">
+        <span>4. Dilemas</span>
+      </button>
+      <button class="step-pill px-3.5 py-2 rounded-xl border border-black/5 flex items-center gap-1.5 text-[#515154] hover:text-purple-700" data-goto="5">
+        <span>5. Recursos</span>
+      </button>
+    </nav>
+
+    <!-- Ficha DUA desplegable -->
+    <button id="toggleDuaBtn" class="inline-flex items-center gap-1.5 bg-purple-50 text-purple-700 border border-purple-200/80 font-bold px-3 py-1.5 rounded-full hover:bg-purple-100 transition text-xs">
+      <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+      <span>Estándar DUA</span>
+      <i data-lucide="chevron-down" id="duaChevron" class="w-3 h-3 transition-transform"></i>
+    </button>
+  </div>
+
+  <!-- Panel colapsable DUA -->
+  <div id="duaPanel" class="hidden apple-card p-5 mt-3 border border-purple-200/60 bg-gradient-to-r from-purple-50/50 via-white to-emerald-50/30">
+    <div class="flex items-center justify-between mb-3">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-purple-100 flex items-center justify-center text-purple-700">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+        </div>
+        <h4 class="font-extrabold text-sm sm:text-base text-[#1D1D1F]">Alineación pedagógica con el Diseño Universal para el Aprendizaje (DUA)</h4>
+      </div>
+      <span class="text-xs font-bold text-purple-700 bg-purple-100/70 px-3 py-1 rounded-full">Accesibilidad universal</span>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs sm:text-sm">
+      <div class="apple-subcard p-3.5">
+        <div class="font-bold text-purple-800 flex items-center gap-1.5 mb-1.5">
+          <i data-lucide="eye" class="w-4 h-4"></i> Múltiple representación
+        </div>
+        <p class="text-[#515154] leading-relaxed">Video con subtítulos + transcripción textual completa + síntesis visual descargable.</p>
+      </div>
+      <div class="apple-subcard p-3.5">
+        <div class="font-bold text-emerald-800 flex items-center gap-1.5 mb-1.5">
+          <i data-lucide="mouse-pointer-click" class="w-4 h-4"></i> Acción y expresión
+        </div>
+        <p class="text-[#515154] leading-relaxed">Laboratorio interactivo de dilemas con retroalimentación correctiva inmediata.</p>
+      </div>
+      <div class="apple-subcard p-3.5">
+        <div class="font-bold text-amber-800 flex items-center gap-1.5 mb-1.5">
+          <i data-lucide="flame" class="w-4 h-4"></i> Motivación y compromiso
+        </div>
+        <p class="text-[#515154] leading-relaxed">Casos auténticos de equipos de trabajo reales, alejados de clichés escolares.</p>
+      </div>
+      <div class="apple-subcard p-3.5">
+        <div class="font-bold text-indigo-800 flex items-center gap-1.5 mb-1.5">
+          <i data-lucide="users" class="w-4 h-4"></i> Comunidad y diálogo
+        </div>
+        <p class="text-[#515154] leading-relaxed">Micro-retos de reflexión dialógica en pares con la pregunta humilde de Edgar Schein.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- ================= PÁGINA 1: APERTURA & OBJETIVOS DE APRENDIZAJE ========= -->
+<!-- ========================================================================= -->
+<main class="max-w-6xl mx-auto px-5 py-5 w-full flex-1">
+  <div id="page-1" class="slide-page active">
+    <!-- HERO CON TÍTULO MONUMENTAL Y CITA DE BRENÉ BROWN -->
+    <div class="apple-card p-7 sm:p-10 relative overflow-hidden mb-6">
+      <div class="fluid-badge -top-20 -right-20 w-80 h-80 bg-purple-200/40"></div>
+      <div class="fluid-badge -bottom-20 -left-20 w-80 h-80 bg-emerald-100/50"></div>
+
+      <div class="relative z-10 grid md:grid-cols-12 gap-8 items-center">
+        <!-- Columna textos de alto impacto -->
+        <div class="md:col-span-7 space-y-4">
+          <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-purple-700 bg-purple-100/80 border border-purple-200 px-3.5 py-1.5 rounded-full">
+            <i data-lucide="compass" class="w-4 h-4"></i> Habilidad Socioemocional Clave
+          </span>
+
+          <!-- TÍTULO MONUMENTAL CON EMPATÍA EN MÁXIMO PROTAGONISMO -->
+          <h1 class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] text-[#1D1D1F]">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-indigo-600 to-purple-800">Empatía:</span> 
+            La Ciencia y el Arte de Conectar
+          </h1>
+
+          <!-- SUBTÍTULO FILOSÓFICO -->
+          <p class="text-base sm:text-lg md:text-xl text-purple-950/85 font-semibold leading-relaxed">
+            Por qué la empatía no es «ponerse en los zapatos del otro», sino aprender a mirar desde su ventana.
+          </p>
+
+          <!-- CITA MAGISTRAL DE BRENÉ BROWN -->
+          <blockquote class="apple-subcard p-4 sm:p-5 border-l-4 border-l-purple-600 bg-purple-50/50 my-3">
+            <p class="italic text-base sm:text-lg text-[#1D1D1F] font-medium leading-relaxed">
+              «Para conectar contigo, necesito conectar primero con algo dentro de mí que reconozca tu sentimiento.»
+            </p>
+            <footer class="text-xs sm:text-sm font-bold text-purple-800 mt-2.5 flex flex-wrap items-center gap-2">
+              <span>— Brené Brown</span>
+              <span class="text-gray-300">·</span>
+              <span class="text-[#515154] font-normal">Investigadora y autora de <em>Dare to Lead</em></span>
+            </footer>
+          </blockquote>
+
+          <p class="text-sm sm:text-base text-[#424245] leading-relaxed">
+            Un Recurso Educativo Abierto (REA) interactivo para desarmar los clichés de la empatía, explorar su raíz biológica en las <strong>neuronas espejo</strong> y dominar la presencia que valida sin invadir.
+          </p>
+        </div>
+
+        <!-- Columna Lore con resplandor -->
+        <div class="md:col-span-5 flex justify-center">
+          <div class="relative">
+            <div class="w-64 h-64 sm:w-72 sm:h-72 bg-gradient-to-tr from-purple-200/50 to-indigo-100/50 rounded-full blur-2xl absolute -inset-2 pointer-events-none"></div>
+            <img 
+              src="./media/lore/superheroina_trans.png" 
+              alt="Lore, guía pedagógica del recurso" 
+              class="relative z-10 w-60 sm:w-72 object-contain drop-shadow-[0_18px_36px_rgba(124,58,237,0.28)]"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TARJETAS DE OBJETIVOS PEDAGÓGICOS (ENSEÑANZA Y APRENDIZAJE) -->
+    <div class="grid md:grid-cols-2 gap-5 mb-6">
+      <!-- Tarjeta 1: Objetivo de Enseñanza (Docente) -->
+      <div class="apple-card p-7 flex flex-col justify-between border-t-4 border-t-indigo-600">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200/80 flex items-center justify-center text-indigo-700 shadow-sm flex-shrink-0">
+              <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-200">
+                Dimensión Docente
+              </span>
+              <h2 class="font-extrabold text-xl sm:text-2xl text-[#1D1D1F] mt-1">Objetivo de Enseñanza</h2>
+            </div>
+          </div>
+          <p class="text-base sm:text-lg text-[#424245] leading-relaxed">
+            Facilitar un andamiaje didáctico transmedia que permita desarticular las concepciones intuitivas e instrumentales de la empatía, guiando el análisis crítico hacia su fundamentación neurobiológica (neuronas espejo) y dialógica (Edgar Schein y Carl Rogers) a través de situaciones contextualizadas y dilemas auténticos.
+          </p>
+        </div>
+        <div class="pt-5 border-t border-black/5 mt-5 text-sm font-bold text-indigo-700 flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4"></i> Mediación pedagógica y andamiaje reflexivo
+        </div>
+      </div>
+
+      <!-- Tarjeta 2: Objetivo de Aprendizaje (Estudiante) -->
+      <div class="apple-card p-7 flex flex-col justify-between border-t-4 border-t-purple-600">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-200/80 flex items-center justify-center text-purple-700 shadow-sm flex-shrink-0">
+              <i data-lucide="target" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-200">
+                Dimensión del Estudiante
+              </span>
+              <h2 class="font-extrabold text-xl sm:text-2xl text-[#1D1D1F] mt-1">Objetivo de Aprendizaje</h2>
+            </div>
+          </div>
+          <p class="text-base sm:text-lg text-[#424245] leading-relaxed">
+            Comprender la empatía como una habilidad socioemocional rigurosa y entrenable, distinguiéndola con precisión de la lástima, la complacencia y la sobre-identificación (<em>enmeshment</em>), para formular intervenciones dialógicas efectivas basadas en la <em>Pregunta Humilde</em> en contextos personales y profesionales.
+          </p>
+        </div>
+        <div class="pt-5 border-t border-black/5 mt-5 text-sm font-bold text-purple-700 flex items-center gap-2">
+          <i data-lucide="compass" class="w-4 h-4"></i> De la reacción reactiva a la respuesta consciente
+        </div>
+      </div>
+    </div>
+
+    <!-- TARJETA DE RESULTADOS ESPERADOS (LO QUE LOGRARÁ EL ESTUDIANTE) -->
+    <div class="apple-card p-7 sm:p-8 mb-6 bg-gradient-to-br from-white via-[#FDFDFE] to-emerald-50/20 border border-emerald-200/50">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center text-emerald-700 shadow-sm flex-shrink-0">
+          <i data-lucide="check-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-100/80 px-2.5 py-0.5 rounded-full border border-emerald-300">
+            Criterios de Desempeño
+          </span>
+          <h2 class="font-extrabold text-xl sm:text-2xl text-[#1D1D1F] mt-1">¿Qué se espera que el alumno aprenda y logre?</h2>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="apple-subcard p-4 sm:p-5 border border-emerald-100 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="w-7 h-7 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center">1</span>
+            <h3 class="font-bold text-base text-[#1D1D1F]">Diferenciación Conceptual</h3>
+            <p class="text-sm text-[#515154] leading-relaxed">Distinguir con solvencia entre simpatía («yo siento contigo»), lástima y empatía genuina («comprendo tu sentir sin apropiármelo»).</p>
+          </div>
+        </div>
+        <div class="apple-subcard p-4 sm:p-5 border border-emerald-100 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="w-7 h-7 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center">2</span>
+            <h3 class="font-bold text-base text-[#1D1D1F]">Análisis Neurobiológico</h3>
+            <p class="text-sm text-[#515154] leading-relaxed">Explicar la función de las neuronas espejo (Rizzolatti) y articular las 3 dimensiones de Daniel Goleman (cognitiva, emocional y compasiva).</p>
+          </div>
+        </div>
+        <div class="apple-subcard p-4 sm:p-5 border border-emerald-100 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="w-7 h-7 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center">3</span>
+            <h3 class="font-bold text-base text-[#1D1D1F]">Aplicación en Dilemas</h3>
+            <p class="text-sm text-[#515154] leading-relaxed">Resolver casos críticos cotidianos aplicando la fórmula de la Pregunta Humilde de Schein con retroalimentación correctiva inmediata.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pt-4 border-t border-black/5 mt-5 text-sm font-bold text-emerald-800 flex items-center gap-2">
+        <i data-lucide="shield-check" class="w-4 h-4"></i> Alineado con la Rúbrica Formativa MEED (disponible en la Guía Docente de Reutilización)
+      </div>
+    </div>
+
+    <!-- BOTÓN DE INICIO MONUMENTAL -->
+    <div class="apple-card p-6 flex flex-col sm:flex-row items-center justify-between gap-4 bg-gradient-to-r from-purple-50 via-white to-indigo-50 border-purple-200/60">
+      <div class="flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-2xl bg-purple-600 text-white flex items-center justify-center font-bold">
+          <i data-lucide="play" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <p class="font-extrabold text-base sm:text-lg text-[#1D1D1F]">¿Todo listo para comenzar el recorrido?</p>
+          <p class="text-xs sm:text-sm text-[#515154]">Estación 1: Microlección en video y reflexión inicial (≈ 10 min)</p>
+        </div>
+      </div>
+      <button class="btn-step-next inline-flex items-center gap-2.5 bg-[#1D1D1F] text-white font-extrabold px-8 py-4 rounded-full text-base sm:text-lg shadow-xl hover:bg-purple-700 transition" data-next="2">
+        <span>Iniciar la experiencia</span>
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ================= PÁGINA 2: ESTACIÓN 1 (ACTIVACIÓN & VIDEO) ============= -->
+  <!-- ========================================================================= -->
+  <div id="page-2" class="slide-page">
+    <div class="apple-card p-7 sm:p-10 mb-6">
+      <!-- CABECERA DE LA PÁGINA CON BOTÓN DE RETORNO Y AVANCE -->
+      <div class="flex items-center justify-between flex-wrap gap-4 pb-5 border-b border-black/5 mb-6">
+        <div class="flex items-center gap-3.5">
+          <span class="w-12 h-12 rounded-2xl bg-purple-600 flex items-center justify-center text-white shadow-md shadow-purple-500/30 flex-shrink-0">
+            <i data-lucide="play-circle" class="w-6 h-6"></i>
+          </span>
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-purple-700 bg-purple-50 px-2.5 py-1 rounded-full border border-purple-200/60">
+              Estación 1 de 4
+            </span>
+            <h2 class="font-extrabold text-2xl sm:text-3xl text-[#1D1D1F] mt-1">Activación Audiovisual</h2>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button class="btn-step-prev inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-black/10 font-bold text-xs sm:text-sm text-[#515154] hover:bg-black/5 transition" data-prev="1">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>Volver a Apertura</span>
+          </button>
+          <button class="btn-step-next inline-flex items-center gap-2 bg-purple-600 text-white font-extrabold px-6 py-2.5 rounded-full text-xs sm:text-sm shadow-md hover:bg-purple-700 transition" data-next="3">
+            <span>Avanzar a la Caja Conceptual</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <p class="text-base sm:text-lg text-[#424245] mb-6 leading-relaxed">
+        Observa atentamente esta cápsula formativa. Mientras avanza, reflexiona sobre esta tensión cotidiana: 
+        <em class="font-semibold text-purple-950">¿qué ocurre cuando intentamos juzgar la situación de alguien desde nuestra propia experiencia en lugar de escuchar la suya?</em>
+      </p>
+
+      <!-- REPRODUCTOR FACADE PROFESIONAL (BLINDADO CONTRA ERROR 153 EN SAFARI MAC/IOS) -->
+      <div id="videoContainer" class="aspect-video w-full rounded-3xl overflow-hidden shadow-2xl border border-black/10 bg-black relative mb-4 group cursor-pointer">
+        <!-- Portada en HD Nítida (Directa de YouTube) -->
+        <img 
+          id="videoPoster" 
+          src="https://img.youtube.com/vi/-AlHz1tpGz8/maxresdefault.jpg" 
+          alt="Portada oficial del video: Empatía - La Ciencia y el Arte de Conectar" 
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        >
+        <!-- Overlay degradé suave -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none"></div>
+
+        <!-- Botón de Play Flotante Monumental tipo YouTube / Apple -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-red-600 text-white flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110 group-hover:bg-red-700">
+            <svg class="w-10 h-10 sm:w-12 sm:h-12 translate-x-0.5 fill-current" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+          <span class="bg-black/70 backdrop-blur-md text-white text-xs sm:text-sm font-extrabold px-4 py-1.5 rounded-full border border-white/20 tracking-wide">
+            Reproducir Cápsula Audiovisual (10:00 min)
+          </span>
+        </div>
+
+        <!-- Contenedor dinámico del iframe (se inyecta únicamente con interacción del usuario) -->
+        <div id="iframeMountPoint" class="absolute inset-0 hidden z-20 bg-black"></div>
+      </div>
+
+      <!-- Barra de accesibilidad y modo YouTube directo -->
+      <div class="flex flex-wrap items-center justify-between text-xs sm:text-sm text-[#6E6E73] px-2 mb-6">
+        <span class="flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+          Reproducción optimizada en alta definición (Safari, Chrome, Edge y móviles).
+        </span>
+        <a 
+          href="https://www.youtube.com/watch?v=-AlHz1tpGz8" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="font-bold text-purple-700 hover:underline flex items-center gap-1"
+        >
+          <span>Abrir directamente en YouTube</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- PROPÓSITO Y GUÍA DE APRENDIZAJE DE LA CÁPSULA (DESCRIPCIÓN PEDAGÓGICA) -->
+      <div class="apple-subcard p-6 sm:p-7 border border-purple-200/70 bg-gradient-to-br from-purple-50/60 via-white to-indigo-50/40 mb-6">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-2xl bg-purple-600 text-white flex items-center justify-center font-black shadow-sm">
+            <i data-lucide="compass" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-lg sm:text-xl text-[#1D1D1F]">¿Qué aprenderás en esta sesión audiovisual?</h3>
+            <p class="text-xs sm:text-sm text-purple-900 font-semibold">Más allá de «ponernos en los zapatos del otro»: mirar desde su ventana</p>
+          </div>
+        </div>
+
+        <p class="text-sm sm:text-base text-[#424245] leading-relaxed mb-4">
+          La empatía va mucho más allá de una fórmula mecánica. Significa reconocer que cada persona vive una realidad propia, construida por experiencias, emociones y significados que nosotros no siempre conocemos.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm text-[#333336] mb-5">
+          <div class="flex items-start gap-2.5 p-2.5 bg-white rounded-xl border border-black/5">
+            <span class="text-base flex-shrink-0">👟</span>
+            <span><strong>Cuestionar el mito:</strong> Empatizar no es suplantar ni caminar con calzado ajeno.</span>
+          </div>
+          <div class="flex items-start gap-2.5 p-2.5 bg-white rounded-xl border border-black/5">
+            <span class="text-base flex-shrink-0">🧠</span>
+            <span><strong>Cerebro y conexión:</strong> La neurobiología de las neuronas espejo ante la emoción ajena.</span>
+          </div>
+          <div class="flex items-start gap-2.5 p-2.5 bg-white rounded-xl border border-black/5">
+            <span class="text-base flex-shrink-0">🌱</span>
+            <span><strong>Mundos invisibles:</strong> Comprender que detrás de cada reacción hay una historia profunda.</span>
+          </div>
+          <div class="flex items-start gap-2.5 p-2.5 bg-white rounded-xl border border-black/5">
+            <span class="text-base flex-shrink-0">💜</span>
+            <span><strong>Validar sin juzgar:</strong> Sostener el espacio sin minimizar ni calificar como exagerado.</span>
+          </div>
+          <div class="flex items-start gap-2.5 p-2.5 bg-white rounded-xl border border-black/5">
+            <span class="text-base flex-shrink-0">🛟</span>
+            <span><strong>Acompañar sin hundirse:</strong> La estabilidad en el muelle que evita ahogarnos juntos.</span>
+          </div>
+          <div class="flex items-start gap-2.5 p-2.5 bg-white rounded-xl border border-black/5">
+            <span class="text-base flex-shrink-0">🤝</span>
+            <span><strong>Presencia antes de solución:</strong> Escuchar y contener antes de prescribir consejos.</span>
+          </div>
+        </div>
+
+        <!-- Misión práctica de transferencia -->
+        <div class="p-4 bg-purple-900 text-white rounded-2xl flex items-start gap-3.5 shadow-md">
+          <div class="text-2xl flex-shrink-0">💡</div>
+          <div class="text-xs sm:text-sm leading-relaxed">
+            <strong class="text-purple-200 block text-sm mb-0.5">Tu Misión Empática:</strong>
+            La próxima vez que alguien reaccione de una manera que no comprendas, antes de emitir un juicio pregúntate en silencio: 
+            <em class="text-purple-100 font-semibold">«¿Qué puede estar viviendo esta persona que yo no alcanzo a ver?»</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRANSCRIPCIÓN TEXTUAL ACCESIBLE (DUA) COMPLETA Y FIDEDIGNA -->
+      <details class="apple-subcard p-6 sm:p-7 border border-purple-200/80 shadow-sm" open>
+        <summary class="font-extrabold text-lg sm:text-xl text-[#1D1D1F] cursor-pointer flex items-center justify-between">
+          <span class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="file-text" class="w-5 h-5"></i>
+            </div>
+            <span>Transcripción Textual Íntegra de la Sesión Audiovisual</span>
+          </span>
+          <span class="text-xs sm:text-sm font-bold text-purple-700 bg-purple-100 px-3.5 py-1.5 rounded-full">
+            Accesibilidad DUA
+          </span>
+        </summary>
+
+        <div class="mt-6 text-sm sm:text-base text-[#333336] space-y-6 pt-5 border-t border-black/5 leading-relaxed">
+          
+          <!-- Bloque 1 -->
+          <div class="space-y-3">
+            <h4 class="font-black text-base sm:text-lg text-purple-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+              1. La Verdadera Definición de la Empatía
+            </h4>
+            <div class="p-4 bg-white rounded-2xl border border-black/5 space-y-3">
+              <p>
+                <strong class="text-[#1D1D1F]">Óscar:</strong> Hola, Diana, y hola a quienes participan de este espacio. Les damos la bienvenida oficialmente a este módulo sobre la empatía. Durante muchos años hemos escuchado una definición que todos conocemos: que la empatía es <em>"ponerte en los zapatos del otro"</em>. Pero realmente, ¿será que es así de simple? ¿Será que sencillamente entramos en los zapatos de otra persona? Cuando hablamos de lo humano, del contexto laboral y de lo compleja que es la interacción, nos adentramos en un desafío gigantesco.
+              </p>
+              <p>
+                <strong class="text-[#1D1D1F]">Diana:</strong> Totalmente, Óscar. Porque seamos honestos: si tú calzas 38 y yo calzo 36, tú te pones mis zapatos, pero además empiezas a recorrer caminos que no conoces... primero te van a doler los pies mínimo una semana, y segundo, te vas a sentir muy desorientada porque no sabes a dónde estás yendo ni por dónde estás caminando. Esa es la complejidad de lo que hablamos hoy.
+              </p>
+              <p>
+                Cuando tratamos de aplicar literalmente el ponernos en los zapatos del otro, casi siempre cometemos el error de juzgar la situación de esa persona desde nuestra propia realidad. Y es cuando vienen frases como: <em>"Yo en tu lugar no me preocuparía tanto por eso"</em>, o la típica: <em>"Si a mí me pasara, eso ya lo habría resuelto"</em>. Pero eso no es empatía; eso es mirarte a ti mismo en un espejo que no es tuyo y que, además, tomaste sin permiso.
+              </p>
+              <p>
+                La verdadera empatía no consiste en suplantar a la otra persona, ni mucho menos suponer que podemos vivir en su cuerpo o en su mente. Consiste en algo mucho más profundo y respetuoso: es reconocer que esa persona habita un mundo propio, con sus propias vivencias y contextos que nosotros no conocemos.
+              </p>
+              <p>
+                <strong class="text-[#1D1D1F]">Óscar:</strong> Exactamente. Una definición que me encanta es la de la Asociación Americana de Psicología (APA), que coincide con la visión del gran psicólogo Carl Rogers: la empatía es el arte de comprender a alguien desde su propia realidad, desde su propio marco de referencia. Jamás desde el nuestro.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bloque 2 -->
+          <div class="space-y-3">
+            <h4 class="font-black text-base sm:text-lg text-emerald-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+              2. La Neurociencia de la Empatía: Las Neuronas Espejo
+            </h4>
+            <div class="p-4 bg-white rounded-2xl border border-black/5 space-y-3">
+              <p>
+                <strong class="text-[#1D1D1F]">Óscar:</strong> Y lo más fascinante es que la empatía no es un invento social ni una moda de cultura corporativa. La empatía es una realidad biológica inscrita en nuestro sistema nervioso, en nuestro ADN. A principios de los años 90, el neurocientífico italiano Giacomo Rizzolatti descubrió en la corteza premotora un grupo de células extraordinarias: <strong>las neuronas espejo</strong>.
+              </p>
+              <p>
+                Esas células hacen algo mágico: se encienden cuando nosotros ejecutamos una acción y también cuando vemos a otra persona realizarla. Todos lo hemos vivido: alguien bosteza al otro lado de la mesa y, por efecto dominó, todos comienzan a bostezar. O ves a un compañero morder un helado con los dientes frontales y se te destemplan los tuyos.
+              </p>
+              <p>
+                Evolutivamente, nuestro cerebro aprendió a sobrevivir gracias a la capacidad de descifrar instantáneamente el dolor, el peligro o la alegría del otro. Como señala el neurobiólogo David Bueno: la empatía es la máxima expresión de la inteligencia biológica y evolutiva. Estamos cableados para empatizar. Pero en el entorno de trabajo, convertir esa chispa biológica en una habilidad profesional exige conciencia, entrenamiento y voluntad.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bloque 3 -->
+          <div class="space-y-3">
+            <h4 class="font-black text-base sm:text-lg text-amber-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+              3. La Empatía en el Entorno Laboral: El Cactus y los Significados Invisibles
+            </h4>
+            <div class="p-4 bg-white rounded-2xl border border-black/5 space-y-3">
+              <p>
+                <strong class="text-[#1D1D1F]">Diana:</strong> Entremos a la médula de las relaciones colaborativas. Muchas veces vemos a un compañero o compañera reaccionar con frustración, desánimo o lágrimas ante una situación que a nosotros nos parece diminuta. Imaginemos esta escena:
+              </p>
+              <p>
+                Una compañera llega a su puesto y ve que el cactus sobre su escritorio se murió. Se le llenan los ojos de lágrimas y queda en silencio visiblemente afectada. Una persona carente de empatía entra y en tono burlesco le dice: <em>"¿En serio vas a llorar por una planta de 5.000 pesos? Supéralo, es solo una planta. Si quieres te compro otra en la esquina"</em>.
+              </p>
+              <p>
+                ¿Qué ocurrió ahí? Quien juzga solo ve la superficie: un vegetal marchito. Lo que esa persona no sabe es que ese cactus fue el último regalo que le dio su abuelo antes de morir en pandemia, y representaba el único recuerdo vivo que la acompañaba en sus noches de desvelo estudiando. Lo que duele no es la planta: es la red invisible de significados que estaba anclada a ella.
+              </p>
+              <p>
+                Esto pasa exactamente igual en lo laboral y en lo tecnológico. Cuando atiendes a un usuario o cliente y se enfurece porque una pasarela de pagos falló por un minuto, o cuando una colega entra en pánico porque se borró una copia de su archivo... no es el archivo ni el botón: detrás puede estar el miedo a perder el empleo, la presión de pagar el arriendo mañana o el agotamiento acumulado de cuidar a un familiar enfermo. La regla de oro de la empatía es esta: <strong class="text-purple-900">Tú puedes no compartir el motivo de la otra persona, pero jamás tienes el derecho de invalidar su emoción.</strong>
+              </p>
+            </div>
+          </div>
+
+          <!-- Bloque 4 -->
+          <div class="space-y-3">
+            <h4 class="font-black text-base sm:text-lg text-rose-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-600"></span>
+              4. Los Dos Abismos y la Cualidad del «Como Si» (Carl Rogers)
+            </h4>
+            <div class="p-4 bg-white rounded-2xl border border-black/5 space-y-3">
+              <p>
+                <strong class="text-[#1D1D1F]">Óscar:</strong> Frente al dolor ajeno solemos caer en dos extremos destructivos que la psicología humanista de Carl Rogers enseña a desactivar:
+              </p>
+              <p>
+                <strong>1. La Minimización o Indolencia:</strong> El clásico <em>"No te preocupes por pequeñeces, no es para tanto, hay gente pasándola peor"</em>. Le enviamos al cerebro del otro un mensaje violento: tus sentimientos son injustos o exagerados. Eso destruye de golpe la confianza y la seguridad psicológica.
+              </p>
+              <p>
+                <strong>2. La Apropiación Dramática:</strong> Es cuando alguien te cuenta su problema y reaccionas diciendo: <em>"¡Ay no, no te lo puedo creer, qué tragedia tan espantosa, yo me muero si me pasa eso!"</em>. Le robaste el protagonismo. Convertiste el dolor del otro en tu propio escenario teatral, y ahora la otra persona tiene que consolarte a ti porque te alteraste.
+              </p>
+              <p>
+                Aquí entra la sabiduría de Carl Rogers: la empatía consiste en adentrarse en el mundo íntimo del otro de manera tan sensible y exacta que sientas su angustia, su enojo o su miedo como si fuera tuyo... pero sin perder jamás la cualidad del <strong>«como si»</strong>.
+              </p>
+              <p>
+                <strong class="text-[#1D1D1F]">Diana:</strong> Piénsenlo con esta metáfora: si ves a alguien ahogándose en un río turbulento, ¿lo ayudas tirándote al agua sin saber nadar para ahogarte con él? ¡Por supuesto que no! Tampoco te quedas en la orilla burlándote de cómo bracea. Te paras firme en el muelle, extiendes una vara resistente o lanzas un salvavidas atado a una cuerda. <strong>Tu estabilidad es lo que permite que el otro no se hunda.</strong>
+              </p>
+              <p>
+                En el trabajo diario, los dos grandes enemigos que destruyen a los equipos son la intolerancia convertida en indiferencia (<em>"no lo soporto, entonces no lo determino"</em>) y el individualismo de <em>"yo hago mi trabajo y cada uno mire cómo se defiende"</em>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bloque 5 -->
+          <div class="space-y-3">
+            <h4 class="font-black text-base sm:text-lg text-indigo-900 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
+              5. Tres Acciones Cotidianas para Potenciar la Empatía y Cierre
+            </h4>
+            <div class="p-4 bg-white rounded-2xl border border-black/5 space-y-3">
+              <p><strong class="text-[#1D1D1F]">Diana:</strong> Tres acciones cotidianas para fortalecer cualquier equipo:</p>
+              <ol class="list-decimal pl-5 space-y-1.5 font-medium">
+                <li><strong>Exposición consciente:</strong> Interésate genuinamente por la historia de quien piensa distinto a ti. La diversidad cognitiva enriquece.</li>
+                <li><strong>Suspensión voluntaria del juicio:</strong> Antes de calificar a un colega como lento o conflictivo, haz una pausa: <em>¿Qué estará viviendo esa persona que yo no alcanzo a ver?</em></li>
+                <li><strong>Validación antes de la solución:</strong> Antes de dar un consejo no pedido, regala una frase de apoyo: <em>"Entiendo que esto te genere frustración. ¿Cómo puedo ayudarte hoy?"</em></li>
+              </ol>
+              <p>
+                <strong class="text-[#1D1D1F]">Diana:</strong> Las máquinas y la inteligencia artificial podrán procesar cantidades gigantescas de datos en microsegundos, pero la capacidad de conmoverse ante el mundo invisible del otro y tenderle la mano sin juzgarlo, esa sigue siendo y será siempre la esencia irreemplazable de nuestra humanidad.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </details>
+
+      <!-- BOTÓN INFERIOR DE AVANCE -->
+      <div class="mt-8 flex justify-end">
+        <button class="btn-step-next inline-flex items-center gap-2.5 bg-purple-600 text-white font-extrabold px-8 py-3.5 rounded-full text-base shadow-lg hover:bg-purple-700 transition" data-next="3">
+          <span>Avanzar a la Caja Conceptual</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ================= PÁGINA 3: ESTACIÓN 2 (CAJA CONCEPTUAL & FICHA) ======== -->
+  <!-- ========================================================================= -->
+  <div id="page-3" class="slide-page">
+    <div class="apple-card p-7 sm:p-10 mb-6">
+      <!-- CABECERA DE LA PÁGINA -->
+      <div class="flex items-center justify-between flex-wrap gap-4 pb-5 border-b border-black/5 mb-6">
+        <div class="flex items-center gap-3.5">
+          <span class="w-14 h-14 rounded-2xl bg-emerald-600 flex items-center justify-center text-white icon-box-3d shadow-emerald-500/30 flex-shrink-0">
+            <i data-lucide="brain" class="w-7 h-7"></i>
+          </span>
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+              Estación 2 de 4
+            </span>
+            <h2 class="font-extrabold text-2xl sm:text-3xl text-[#1D1D1F] mt-1">Caja de Herramientas Conceptuales</h2>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button class="btn-step-prev inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-black/10 font-bold text-xs sm:text-sm text-[#515154] hover:bg-black/5 transition" data-prev="2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>Volver a Video</span>
+          </button>
+          <button class="btn-step-next inline-flex items-center gap-2 bg-purple-600 text-white font-extrabold px-6 py-2.5 rounded-full text-xs sm:text-sm shadow-md hover:bg-purple-700 transition" data-next="4">
+            <span>Avanzar al Laboratorio</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <p class="text-base sm:text-lg text-[#424245] mb-8 leading-relaxed">
+        Integración curricular de la <strong>Ficha de Memoria</strong> y los marcos neurocientíficos y humanistas de la empatía: cuatro pilares fundamentales para desarmar clichés y aplicar la escucha consciente en el trabajo colaborativo.
+      </p>
+
+      <!-- PILAR 1: EL DILEMA DE LOS ZAPATOS AJENOS (CONTRASTE EDITORIAL) -->
+      <div class="apple-card p-6 sm:p-8 mb-6 border border-purple-200/70 shadow-sm">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-purple-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0">
+              <i data-lucide="footprints" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+              1. El Dilema de los Zapatos Ajenos
+            </h3>
+          </div>
+          <span class="text-sm font-extrabold text-purple-800 bg-purple-100/80 px-4 py-1.5 rounded-full border border-purple-200">
+            Carl Rogers &amp; APA
+          </span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <!-- Error habitual -->
+          <div class="apple-subcard p-6 border-l-8 border-l-rose-500 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2.5">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-rose-700">El Error Habitual</span>
+              </div>
+              <h4 class="text-lg sm:text-xl font-black text-[#1D1D1F] mb-2">
+                «Ponerse literalmente en sus zapatos»
+              </h4>
+              <p class="text-base sm:text-lg text-[#333336] leading-relaxed">
+                Juzgar la vivencia de otra persona desde tus propios parámetros y privilegios: <em>«Yo en tu lugar no me preocuparía tanto»</em> o <em>«eso ya lo habría resuelto»</em>.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-black/5 flex items-center gap-2.5 text-base sm:text-lg font-bold text-rose-700">
+              <div class="w-7 h-7 rounded-lg bg-rose-100 flex items-center justify-center flex-shrink-0 text-rose-600">
+                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+              </div>
+              <span><strong>Consecuencia:</strong> Invalidación encubierta y ruptura de confianza.</span>
+            </div>
+          </div>
+
+          <!-- Acierto empático -->
+          <div class="apple-subcard p-6 border-l-8 border-l-emerald-600 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2.5">
+                <span class="w-3 h-3 rounded-full bg-emerald-600"></span>
+                <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-800">El Acierto Empático</span>
+              </div>
+              <h4 class="text-lg sm:text-xl font-black text-[#1D1D1F] mb-2">
+                Mirar desde su propio marco
+              </h4>
+              <p class="text-base sm:text-lg text-[#333336] leading-relaxed">
+                Reconocer que el otro habita un mundo propio, con biografías, duelos y presiones invisibles que tú no conoces ni necesitas juzgar.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-black/5 flex items-center gap-2.5 text-base sm:text-lg font-bold text-emerald-800">
+              <div class="w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-700">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+              </div>
+              <span><strong>Clave:</strong> Respeto radical por la individualidad del otro.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cita destacada Rogers / APA -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-purple-50/90 border border-purple-200 text-base sm:text-lg text-[#1D1D1F] font-bold flex items-center gap-4 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0">
+            <i data-lucide="quote" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="leading-relaxed">APA &amp; Carl Rogers: «La empatía es el arte de comprender a alguien desde su propia realidad y marco de referencia. Jamás desde el nuestro».</span>
+        </div>
+      </div>
+
+      <!-- PILAR 2: LA BASE BIOLÓGICA & NEURONAS ESPEJO -->
+      <div class="apple-card p-6 sm:p-8 mb-6 border border-blue-200/70 shadow-sm">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-blue-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0">
+              <i data-lucide="dna" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+              2. La Base Neurobiológica: Las Neuronas Espejo
+            </h3>
+          </div>
+          <span class="text-sm font-extrabold text-blue-800 bg-blue-100 px-4 py-1.5 rounded-full border border-blue-200">
+            Giacomo Rizzolatti (1990)
+          </span>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-6 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <p class="text-base sm:text-lg text-[#333336] leading-relaxed">
+              Descubiertas en la corteza premotora del cerebro, estas células extraordinarias se activan 
+              <strong>tanto cuando ejecutamos una acción como cuando vemos a otra persona realizarla o experimentar una emoción</strong>.
+            </p>
+            <p class="text-base sm:text-lg text-[#515154] leading-relaxed">
+              Son el puente que nos hace bostezar por contagio o destemplar los dientes cuando alguien muerde un hielo. 
+              Evolutivamente, aseguraron nuestra supervivencia permitiéndonos descifrar en microsegundos el peligro, el dolor o la alegría en la tribu.
+            </p>
+          </div>
+
+          <div class="md:col-span-5">
+            <div class="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 text-center space-y-3 shadow-md">
+              <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-600 text-white icon-box-3d flex items-center justify-center shadow-lg shadow-blue-500/30">
+                <i data-lucide="sparkles" class="w-7 h-7"></i>
+              </div>
+              <p class="text-lg sm:text-xl font-black text-blue-950 leading-snug">
+                «La empatía es la máxima expresión de la inteligencia biológica».
+              </p>
+              <footer class="text-sm font-extrabold text-blue-800 tracking-wide">
+                — David Bueno · Neurobiólogo
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILAR 3: EL ICEBERG INVISIBLE & LA REGLA DE ORO -->
+      <div class="apple-card p-6 sm:p-8 mb-6 border border-amber-200/70 shadow-sm">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-amber-500 text-white icon-box-3d flex items-center justify-center flex-shrink-0">
+              <i data-lucide="layers" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+              3. El Iceberg de los Significados Invisibles
+            </h3>
+          </div>
+          <span class="text-sm font-extrabold text-amber-900 bg-amber-100 px-4 py-1.5 rounded-full border border-amber-200">
+            El Caso del Cactus
+          </span>
+        </div>
+
+        <p class="text-base sm:text-lg text-[#333336] mb-5 leading-relaxed">
+          En el trabajo colaborativo, con frecuencia vemos a alguien reaccionar con lágrimas o enojo ante algo que parece minúsculo. 
+          Quien juzga solo observa la punta del iceberg:
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-5 mb-6">
+          <!-- Lo visible -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-rose-50/80 border border-rose-200 space-y-2">
+            <div class="flex items-center gap-2.5">
+              <span class="w-3.5 h-3.5 rounded-full bg-rose-500 shadow-sm"></span>
+              <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-rose-700">Lo Visible (Superficie)</span>
+            </div>
+            <p class="text-base sm:text-lg font-bold text-[#1D1D1F] leading-snug pl-6">
+              Una planta que se secó, un botón que falló o una celda borrada en una hoja de cálculo.
+            </p>
+          </div>
+
+          <!-- Lo invisible -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-emerald-50/80 border border-emerald-200 space-y-2">
+            <div class="flex items-center gap-2.5">
+              <span class="w-3.5 h-3.5 rounded-full bg-emerald-600 shadow-sm"></span>
+              <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-800">Lo Invisible (Profundidad)</span>
+            </div>
+            <p class="text-base sm:text-lg font-bold text-[#1D1D1F] leading-snug pl-6">
+              El último regalo de un abuelo, el miedo a perder el sustento o cuidar a un familiar enfermo.
+            </p>
+          </div>
+        </div>
+
+        <!-- REGLA DE ORO MONUMENTAL -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-50 via-amber-100/70 to-amber-50 border-2 border-amber-300 text-center space-y-3 shadow-md">
+          <span class="inline-flex items-center gap-2 text-xs sm:text-sm font-black uppercase tracking-widest text-amber-950 bg-amber-200 px-4 py-1.5 rounded-full shadow-sm">
+            <i data-lucide="star" class="w-4 h-4 fill-amber-500 text-amber-700"></i> Regla de Oro en la Vida y el Trabajo
+          </span>
+          <h4 class="text-xl sm:text-2xl md:text-3xl font-black text-amber-950 leading-snug">
+            «Puedes no compartir el motivo de la otra persona, pero jamás tienes derecho a invalidar su emoción».
+          </h4>
+        </div>
+      </div>
+
+      <!-- PILAR 4: LOS DOS ABISMOS, EL «COMO SI» Y BRENÉ BROWN -->
+      <div class="apple-card p-6 sm:p-8 mb-6 border border-purple-300/80 shadow-sm">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-purple-100 flex items-center justify-center text-purple-700 flex-shrink-0">
+              <i data-lucide="life-buoy" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+              4. Los Dos Abismos &amp; la Sabiduría del «Como Si»
+            </h3>
+          </div>
+          <span class="text-sm font-extrabold text-purple-800 bg-purple-100 px-4 py-1.5 rounded-full border border-purple-200">
+            Carl Rogers &amp; Brené Brown
+          </span>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5 mb-6">
+          <!-- Abismo 1 -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-rose-50/80 border border-rose-200 space-y-2.5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-rose-700">Abismo 1: Indolencia</span>
+                <span class="text-xs sm:text-sm font-bold text-rose-700 bg-rose-100 px-3 py-0.5 rounded-full">Frialdad</span>
+              </div>
+              <h4 class="text-lg sm:text-xl font-black text-[#1D1D1F]">Minimización</h4>
+              <p class="text-base sm:text-lg text-[#333336] leading-relaxed">
+                <em>«No te preocupes por pequeñeces, no es para tanto»</em>. Silencia la vivencia y destruye la seguridad psicológica.
+              </p>
+            </div>
+            <div class="mt-3 pt-3 border-t border-black/5 flex items-center gap-2 text-sm sm:text-base font-bold text-rose-700">
+              <i data-lucide="x-circle" class="w-4 h-4 text-rose-600 flex-shrink-0"></i>
+              <span><strong>Efecto:</strong> Desconexión y aislamiento del otro.</span>
+            </div>
+          </div>
+
+          <!-- Abismo 2 -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-amber-50/80 border border-amber-200 space-y-2.5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-amber-900">Abismo 2: Melodrama</span>
+                <span class="text-xs sm:text-sm font-bold text-amber-800 bg-amber-100 px-3 py-0.5 rounded-full">Invasión</span>
+              </div>
+              <h4 class="text-lg sm:text-xl font-black text-[#1D1D1F]">Apropiación (Enmeshment)</h4>
+              <p class="text-base sm:text-lg text-[#333336] leading-relaxed">
+                <em>«¡Qué tragedia, yo me muero si me pasa eso!»</em>. Roba el protagonismo del dolor y fuerza al otro a consolarte a ti.
+              </p>
+            </div>
+            <div class="mt-3 pt-3 border-t border-black/5 flex items-center gap-2 text-sm sm:text-base font-bold text-amber-900">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-amber-700 flex-shrink-0"></i>
+              <span><strong>Efecto:</strong> Sobrecarga y manipulación involuntaria.</span>
+            </div>
+          </div>
+
+          <!-- Cumbre empática -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-500/70 space-y-2.5 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-emerald-900">La Cumbre Empática</span>
+                <span class="text-xs sm:text-sm font-black text-emerald-950 bg-emerald-200 px-3 py-0.5 rounded-full">Presencia Serena</span>
+              </div>
+              <h4 class="text-lg sm:text-xl font-black text-emerald-950">El «Como Si» de Rogers</h4>
+              <p class="text-base sm:text-lg text-emerald-950 leading-relaxed font-medium">
+                Sentir la angustia del otro <em>como si</em> fuera tuya, pero sin perder jamás tu propio anclaje ni fundirte en su sufrimiento.
+              </p>
+            </div>
+            <div class="mt-3 pt-3 border-t border-black/5 flex items-center gap-2 text-sm sm:text-base font-bold text-emerald-800">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-700 flex-shrink-0"></i>
+              <span><strong>Efecto:</strong> Apoyo real, seguro y sostenible.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metáfora náutica y Brené Brown (CON ICONOS VECTORIALES EMBELLECIDOS Y SOMBRA 3D) -->
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="p-6 rounded-2xl bg-white border border-black/10 text-base sm:text-lg text-[#1D1D1F] flex items-start gap-4 shadow-sm">
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-blue-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/30">
+              <i data-lucide="anchor" class="w-7 h-7"></i>
+            </div>
+            <p class="leading-relaxed">
+              <strong class="text-blue-950 block text-lg sm:text-xl mb-1">La Metáfora Náutica del Muelle:</strong>
+              Si ves a alguien en un río turbulento, no te tiras al agua sin saber nadar para ahogarte con él. Te paras firme en el muelle y lanzas una vara resistente. <strong>Tu estabilidad es lo que permite el rescate.</strong>
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-purple-50/90 border border-purple-200 text-base sm:text-lg text-[#1D1D1F] flex items-start gap-4 shadow-sm">
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-purple-700 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-600/30">
+              <i data-lucide="shield-alert" class="w-7 h-7"></i>
+            </div>
+            <p class="leading-relaxed">
+              <strong class="text-purple-950 block text-lg sm:text-xl mb-1">Brené Brown (Hoyo vs. Orilla):</strong>
+              <em>«Si ves a alguien en un hoyo oscuro y saltas al fondo, ahora son dos personas atrapadas. Empatía no es enmeshment: es permanecer entero en la orilla, haciéndole saber que no está solo».</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILAR 5: TRES ACCIONES CONCRETAS EN EL DÍA A DÍA -->
+      <div class="apple-card p-6 sm:p-8 mb-6 border border-emerald-200/70 shadow-sm">
+        <div class="flex items-center gap-3.5 mb-6">
+          <div class="w-13 h-13 p-3.5 rounded-2xl bg-emerald-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0">
+            <i data-lucide="check-circle-2" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-black text-[#1D1D1F]">
+            5. Tres Acciones Cotidianas para el Trabajo Colaborativo
+          </h3>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="apple-subcard p-6 space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-purple-700 text-white font-black text-base flex items-center justify-center icon-box-3d shadow-md shadow-purple-600/30">1</div>
+            <h4 class="text-lg sm:text-xl font-black text-[#1D1D1F]">Exposición Consciente</h4>
+            <p class="text-base text-[#424245] leading-relaxed">
+              Interésate genuinamente por la historia de quien piensa o trabaja distinto a ti. La diversidad cognitiva enriquece al equipo.
+            </p>
+          </div>
+
+          <div class="apple-subcard p-6 space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-indigo-700 text-white font-black text-base flex items-center justify-center icon-box-3d shadow-md shadow-indigo-600/30">2</div>
+            <h4 class="text-lg sm:text-xl font-black text-[#1D1D1F]">Suspensión del Juicio</h4>
+            <p class="text-base text-[#424245] leading-relaxed">
+              Antes de calificar a un colega como lento o conflictivo, haz una pausa: <em>«¿Qué estará viviendo que yo no alcanzo a ver?»</em>.
+            </p>
+          </div>
+
+          <div class="apple-subcard p-6 space-y-3">
+            <div class="w-11 h-11 rounded-2xl bg-emerald-700 text-white font-black text-base flex items-center justify-center icon-box-3d shadow-md shadow-emerald-600/30">3</div>
+            <h4 class="text-lg sm:text-xl font-black text-[#1D1D1F]">Validar antes de Aconsejar</h4>
+            <p class="text-base text-[#424245] leading-relaxed">
+              Antes de recetar una solución no pedida, ofrece presencia honesta: <em>«Entiendo tu frustración. ¿Cómo puedo ayudarte hoy?»</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAUSA METACOGNITIVA CON FONDO PÚRPURA TORNASOLADO E ICONO VECTORIAL ELEGANTE -->
+      <div class="apple-card p-7 sm:p-9 bg-gradient-to-br from-[#2E1065] via-[#3B0764] to-[#1E1B4B] text-white flex flex-col sm:flex-row items-center gap-7 shadow-2xl border border-purple-500/30 relative overflow-hidden">
+        <div class="fluid-badge -top-10 -right-10 w-60 h-60 bg-purple-500/20"></div>
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-purple-500 to-indigo-400 p-0.5 flex-shrink-0 shadow-lg relative z-10">
+          <div class="w-full h-full bg-[#2E1065] rounded-[22px] flex items-center justify-center text-purple-200">
+            <i data-lucide="sparkles" class="w-8 h-8 sm:w-10 sm:h-10 text-purple-300"></i>
+          </div>
+        </div>
+        <div class="space-y-2 relative z-10 text-center sm:text-left">
+          <p class="font-extrabold text-base sm:text-lg text-purple-200 tracking-wide uppercase text-xs sm:text-sm">
+            Pausa para la Metacognición Docente y Estudiantil
+          </p>
+          <p class="text-base sm:text-lg md:text-xl text-purple-50 leading-relaxed font-medium">
+            Las máquinas y la inteligencia artificial podrán procesar volúmenes masivos de datos en microsegundos; pero la capacidad de conmoverse ante el mundo invisible del otro y tenderle la mano sin juzgarlo, sigue siendo la esencia irreemplazable de nuestra humanidad.
+          </p>
+        </div>
+      </div>
+
+      <!-- BOTÓN INFERIOR DE AVANCE -->
+      <div class="mt-8 flex justify-end">
+        <button class="btn-step-next inline-flex items-center gap-2.5 bg-purple-600 text-white font-extrabold px-8 py-3.5 rounded-full text-base shadow-lg hover:bg-purple-700 transition" data-next="4">
+          <span>Avanzar al Laboratorio de Dilemas</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ================= PÁGINA 4: ESTACIÓN 3 (LABORATORIO & GAMIFICACIÓN) ===== -->
+  <!-- ========================================================================= -->
+  <div id="page-4" class="slide-page">
+    <div class="apple-card p-7 sm:p-10 mb-6">
+      <!-- CABECERA -->
+      <div class="flex items-center justify-between flex-wrap gap-4 pb-5 border-b border-black/5 mb-6">
+        <div class="flex items-center gap-3.5">
+          <span class="w-14 h-14 rounded-2xl bg-purple-700 flex items-center justify-center text-white icon-box-3d shadow-purple-600/30 flex-shrink-0">
+            <i data-lucide="flask-conical" class="w-7 h-7"></i>
+          </span>
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-200/60">
+              Estación 3 de 4
+            </span>
+            <h2 class="font-extrabold text-2xl sm:text-3xl text-[#1D1D1F] mt-1">Laboratorio de Dilemas y Práctica Interactiva</h2>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button class="btn-step-prev inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-black/10 font-bold text-xs sm:text-sm text-[#515154] hover:bg-black/5 transition" data-prev="3">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>Volver a Conceptos</span>
+          </button>
+          <button class="btn-step-next inline-flex items-center gap-2 bg-purple-600 text-white font-extrabold px-6 py-2.5 rounded-full text-xs sm:text-sm shadow-md hover:bg-purple-700 transition" data-next="5">
+            <span>Avanzar a Recursos</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <p class="text-base sm:text-lg text-[#333336] mb-8 leading-relaxed">
+        En las situaciones cotidianas y en los equipos de trabajo no existen respuestas automáticas. 
+        Este laboratorio integra dos dinámicas formativas para entrenar el discernimiento empático: 
+        <strong>el análisis del caso del esfuerzo invisible</strong> y <strong>el decodificador de expresiones cotidianas</strong>.
+      </p>
+
+      <!-- ========================================================================= -->
+      <!-- CASO FORMATIVO 1: LA EMPATÍA QUE ESPERÁBAMOS Y NUNCA LLEGÓ ============= -->
+      <!-- ========================================================================= -->
+      <div class="apple-card p-6 sm:p-8 mb-8 border border-purple-200/80 shadow-sm" id="game-case-box">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-purple-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0">
+              <i data-lucide="users" class="w-7 h-7"></i>
+            </div>
+            <div>
+              <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-purple-700 bg-purple-100 px-3 py-0.5 rounded-full">
+                Dinámica 1 · Escena Cotidiana
+              </span>
+              <h3 class="text-xl sm:text-2xl font-black text-[#1D1D1F] mt-1">
+                La Empatía que Esperábamos y Nunca Llegó
+              </h3>
+            </div>
+          </div>
+          <span class="text-xs sm:text-sm font-bold text-[#6E6E73] bg-[#F5F5F7] px-3 py-1 rounded-full border border-black/5">
+            El Agotamiento del Estudiante y Trabajador
+          </span>
+        </div>
+
+        <!-- SITUACIÓN COTIDIANA -->
+        <div class="p-6 rounded-2xl bg-gradient-to-r from-purple-50 via-indigo-50/40 to-purple-50 border border-purple-200 text-[#1D1D1F] mb-6 shadow-sm">
+          <div class="flex items-center gap-2 text-xs sm:text-sm uppercase font-extrabold text-purple-800 mb-2 tracking-wider">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+            La voz de quien comparte su sobrecarga:
+          </div>
+          <p class="text-lg sm:text-xl font-bold leading-relaxed text-purple-950 italic">
+            «No doy más... estudiar programación y bases de datos a distancia y luego cumplir una jornada laboral de ocho horas atendiendo personas me tiene la espalda adolorida, y casi no duermo por completar los ejercicios prácticos...»
+          </p>
+        </div>
+
+        <p class="text-base sm:text-lg text-[#333336] font-semibold mb-4 flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-5 h-5 text-purple-600"></i>
+          Evalúa las cuatro posibles respuestas del entorno y descubre qué actitud psicológica revelan:
+        </p>
+
+        <!-- GRILLA DE 4 OPCIONES DE CASO (A, B, C, D) -->
+        <div class="grid md:grid-cols-2 gap-5" id="case-options-grid">
+          <!-- OPCIÓN A -->
+          <button onclick="revealCaseOption('A')" id="case-btn-A" class="opt-btn text-left p-6 rounded-2xl flex flex-col justify-between gap-3 cursor-pointer">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-black text-base shadow-sm">A</span>
+                <span class="text-xs font-bold text-[#6E6E73] uppercase tracking-wider">Respuesta A</span>
+              </div>
+              <p class="text-base sm:text-lg text-[#1D1D1F] leading-snug italic">
+                «¿Cansancio tú a tus años y frente a una computadora? ¡Cansancio el mío, que a tu edad ya criaba tres hijos y trabajaba el doble desde el amanecer! Hoy en día la gente se queja por todo».
+              </p>
+            </div>
+            <div class="pt-3 border-t border-black/5 flex items-center justify-between text-xs sm:text-sm font-bold text-purple-700">
+              <span>¿Qué actitud revela?</span>
+              <span class="underline">Haz clic para evaluar</span>
+            </div>
+          </button>
+
+          <!-- OPCIÓN B -->
+          <button onclick="revealCaseOption('B')" id="case-btn-B" class="opt-btn text-left p-6 rounded-2xl flex flex-col justify-between gap-3 cursor-pointer">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center font-black text-base shadow-sm">B</span>
+                <span class="text-xs font-bold text-[#6E6E73] uppercase tracking-wider">Respuesta B</span>
+              </div>
+              <p class="text-base sm:text-lg text-[#1D1D1F] leading-snug italic">
+                «No te quejes tanto, que eso es ser desagradecido... Hay personas que no tienen trabajo ni techo donde pasar la noche. Ese pesimismo se te quita tomándote un té y pensando más en positivo».
+              </p>
+            </div>
+            <div class="pt-3 border-t border-black/5 flex items-center justify-between text-xs sm:text-sm font-bold text-amber-800">
+              <span>¿Qué actitud revela?</span>
+              <span class="underline">Haz clic para evaluar</span>
+            </div>
+          </button>
+
+          <!-- OPCIÓN C -->
+          <button onclick="revealCaseOption('C')" id="case-btn-C" class="opt-btn text-left p-6 rounded-2xl flex flex-col justify-between gap-3 cursor-pointer">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center font-black text-base shadow-sm">C</span>
+                <span class="text-xs font-bold text-[#6E6E73] uppercase tracking-wider">Respuesta C</span>
+              </div>
+              <p class="text-base sm:text-lg text-[#1D1D1F] leading-snug italic">
+                «Si no eres capaz con todo eso, renuncia ya al curso y quédate en el trabajo. Nadie te mandó a meterte en cosas difíciles que te iban a estresar; si elegiste estudiar, aguanta sin quejarte o déjalo de una vez».
+              </p>
+            </div>
+            <div class="pt-3 border-t border-black/5 flex items-center justify-between text-xs sm:text-sm font-bold text-rose-700">
+              <span>¿Qué actitud revela?</span>
+              <span class="underline">Haz clic para evaluar</span>
+            </div>
+          </button>
+
+          <!-- OPCIÓN D -->
+          <button onclick="revealCaseOption('D')" id="case-btn-D" class="opt-btn text-left p-6 rounded-2xl flex flex-col justify-between gap-3 cursor-pointer">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-base shadow-sm">D</span>
+                <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider">Respuesta D</span>
+              </div>
+              <p class="text-base sm:text-lg text-emerald-950 font-medium leading-snug italic">
+                «Ven, descansa un momento y deja tus cosas. Veo que el día te exigió al máximo; concentrarse horas en la pantalla y atender llamadas complejas agota la energía. Desconéctate un rato, cenamos algo tranquilos y luego vemos con calma cómo seguir».
+              </p>
+            </div>
+            <div class="pt-3 border-t border-black/5 flex items-center justify-between text-xs sm:text-sm font-bold text-emerald-800">
+              <span>¿Qué actitud revela?</span>
+              <span class="underline">Haz clic para evaluar</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- PANEL DE FEEDBACK CASO -->
+        <div id="case-feedback-box" class="hidden mt-6 p-6 sm:p-7 rounded-2xl border-2 transition-all">
+          <div class="flex items-start gap-4 mb-3">
+            <div id="case-fb-icon-box" class="w-12 h-12 rounded-2xl icon-box-3d flex items-center justify-center shrink-0">
+              <i id="case-fb-icon" class="w-6 h-6"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h4 id="case-fb-title" class="font-black text-xl text-[#1D1D1F]"></h4>
+                <span id="case-fb-tag" class="text-xs sm:text-sm font-extrabold uppercase px-3 py-1 rounded-full"></span>
+              </div>
+              <span id="case-fb-subtitle" class="text-sm sm:text-base font-semibold text-[#515154] block mt-0.5"></span>
+            </div>
+          </div>
+          <p id="case-fb-desc" class="text-base sm:text-lg text-[#333336] leading-relaxed mb-4"></p>
+          <div id="case-fb-tip-box" class="p-4 sm:p-5 rounded-2xl space-y-1">
+            <strong id="case-fb-tip-label" class="flex items-center gap-2 text-sm sm:text-base font-bold">
+              <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              <span>Aprendizaje para el Trabajo y la Convivencia:</span>
+            </strong>
+            <p id="case-fb-tip" class="text-base sm:text-lg leading-relaxed"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- CASO FORMATIVO 2: EL DECODIFICADOR DE EXPRESIONES (TRADUCTOR EMPÁTICO) == -->
+      <!-- ========================================================================= -->
+      <div class="apple-card p-6 sm:p-8 mb-8 border border-emerald-200/80 shadow-sm" id="game-translator-box">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-emerald-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0">
+              <i data-lucide="sparkles" class="w-7 h-7"></i>
+            </div>
+            <div>
+              <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3 py-0.5 rounded-full">
+                Dinámica 2 · Autoliderazgo y Lenguaje
+              </span>
+              <h3 class="text-xl sm:text-2xl font-black text-[#1D1D1F] mt-1">
+                El Decodificador de Expresiones Cotidianas
+              </h3>
+            </div>
+          </div>
+          <span class="text-xs sm:text-sm font-bold text-[#6E6E73] bg-[#F5F5F7] px-3 py-1 rounded-full border border-black/5">
+            Transformando la Reactividad en Conexión
+          </span>
+        </div>
+
+        <p class="text-base sm:text-lg text-[#424245] mb-5 leading-relaxed">
+          En los intercambios laborales y personales suelen deslizarse frases automáticas que hieren la comunicación. 
+          Selecciona una expresión para examinar su impacto y descubrir su traducción empática:
+        </p>
+
+        <!-- SELECTOR DE PESTAÑAS (4 FRASES) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          <button onclick="setTranslatorPhrase(0)" id="trans-tab-0" class="p-3.5 rounded-2xl border text-left flex items-center gap-2.5 transition cursor-pointer">
+            <span class="w-8 h-8 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-black text-sm shrink-0">1</span>
+            <div class="truncate">
+              <strong class="text-sm block text-[#1D1D1F] truncate">«¿Para qué me busca?»</strong>
+              <span class="text-xs text-[#6E6E73]">La Defensiva</span>
+            </div>
+          </button>
+
+          <button onclick="setTranslatorPhrase(1)" id="trans-tab-1" class="p-3.5 rounded-2xl border text-left flex items-center gap-2.5 transition cursor-pointer">
+            <span class="w-8 h-8 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-black text-sm shrink-0">2</span>
+            <div class="truncate">
+              <strong class="text-sm block text-[#1D1D1F] truncate">«¡Ahí está la puerta!»</strong>
+              <span class="text-xs text-[#6E6E73]">La Amenaza</span>
+            </div>
+          </button>
+
+          <button onclick="setTranslatorPhrase(2)" id="trans-tab-2" class="p-3.5 rounded-2xl border text-left flex items-center gap-2.5 transition cursor-pointer">
+            <span class="w-8 h-8 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-black text-sm shrink-0">3</span>
+            <div class="truncate">
+              <strong class="text-sm block text-[#1D1D1F] truncate">«Con todo respeto...»</strong>
+              <span class="text-xs text-[#6E6E73]">Juicio Disfrazado</span>
+            </div>
+          </button>
+
+          <button onclick="setTranslatorPhrase(3)" id="trans-tab-3" class="p-3.5 rounded-2xl border text-left flex items-center gap-2.5 transition cursor-pointer">
+            <span class="w-8 h-8 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-black text-sm shrink-0">4</span>
+            <div class="truncate">
+              <strong class="text-sm block text-[#1D1D1F] truncate">«En un vaso de agua»</strong>
+              <span class="text-xs text-[#6E6E73]">Minimización Fría</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- TARJETA DEL TRADUCTOR -->
+        <div class="apple-subcard p-6 sm:p-8 space-y-6">
+          <!-- Frase reactiva habitual -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs sm:text-sm uppercase font-extrabold text-rose-700 tracking-wider flex items-center gap-1.5">
+                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                Como surge cuando domina la reactividad o la prisa:
+              </span>
+              <span id="trans-pattern-tag" class="text-xs font-bold text-[#6E6E73] bg-black/5 px-3 py-1 rounded-full"></span>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-rose-50/80 border-2 border-rose-200 text-[#1D1D1F] shadow-sm">
+              <p id="trans-toxic-text" class="text-xl sm:text-2xl font-black text-rose-950 leading-snug"></p>
+            </div>
+
+            <div class="mt-3 p-4 rounded-xl bg-white border border-black/10 flex items-start gap-3">
+              <i data-lucide="info" class="w-5 h-5 text-rose-600 shrink-0 mt-0.5"></i>
+              <p id="trans-toxic-trap" class="text-base text-[#424245] leading-relaxed"></p>
+            </div>
+          </div>
+
+          <!-- Botón o Zona para Revelar la Traducción Empática -->
+          <div id="trans-action-zone" class="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="space-y-1">
+              <h4 class="font-extrabold text-base sm:text-lg text-emerald-950">¿Cómo transformar esta expresión con inteligencia empática?</h4>
+              <p class="text-sm sm:text-base text-[#515154]">Descubre la alternativa basada en la responsabilidad personal y el respeto al vínculo.</p>
+            </div>
+            <button onclick="revealTranslatorCard()" id="trans-reveal-btn" class="w-full sm:w-auto px-6 py-3 rounded-full bg-emerald-600 text-white font-black text-base shadow-lg hover:bg-emerald-700 transition flex items-center justify-center gap-2 cursor-pointer shrink-0">
+              <i data-lucide="wand-2" class="w-5 h-5"></i>
+              <span>Ver Traducción Empática</span>
+            </button>
+          </div>
+
+          <!-- Traducción Empática Revelada -->
+          <div id="trans-result-card" class="hidden space-y-4 pt-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs sm:text-sm uppercase font-extrabold text-emerald-800 tracking-wider flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i>
+                Alternativa Empática Recomendada:
+              </span>
+              <span class="text-xs sm:text-sm font-bold text-emerald-800 bg-emerald-100 px-3.5 py-1 rounded-full">
+                Comunicación Constructiva
+              </span>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-400 text-emerald-950 shadow-md">
+              <p id="trans-empathy-text" class="text-xl sm:text-2xl font-black leading-relaxed"></p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white border border-emerald-200 text-base text-[#333336] space-y-1 shadow-sm">
+              <strong class="text-emerald-900 flex items-center gap-2 text-base font-bold">
+                <i data-lucide="lightbulb" class="w-5 h-5 text-emerald-600"></i>
+                <span>Por qué funciona esta alternativa:</span>
+              </strong>
+              <p id="trans-empathy-why" class="leading-relaxed"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MICRO-RETO DE EDGAR SCHEIN & BRENÉ BROWN -->
+      <div class="apple-subcard p-7 sm:p-9 border-l-8 border-l-emerald-600 bg-gradient-to-br from-emerald-50/60 via-white to-purple-50/40 shadow-sm">
+        <div class="flex items-start gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0 font-black shadow-md shadow-emerald-500/30">
+            <i data-lucide="help-circle" class="w-7 h-7"></i>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-emerald-900 bg-emerald-100 px-3 py-0.5 rounded-full">
+                Micro-reto Metacognitivo
+              </span>
+              <span class="text-xs sm:text-sm font-bold text-purple-900 bg-purple-100 px-3 py-0.5 rounded-full">
+                Edgar Schein (Humble Inquiry) + Brené Brown
+              </span>
+            </div>
+
+            <h4 class="font-extrabold text-xl sm:text-2xl text-[#1D1D1F]">
+              La Pregunta Humilde: Del impulso de «arreglar» a la presencia que acompaña
+            </h4>
+
+            <p class="text-base sm:text-lg text-[#333336] leading-relaxed">
+              Cuando alguien nos comparte una dificultad, nuestro cerebro suele reaccionar con dos trampas automáticas: <strong>dar consejos apresurados</strong> (la trampa del <em>fixing</em>) o <strong>asumir qué necesita el otro</strong>. Edgar Schein y Brené Brown coinciden en que la verdadera empatía empieza por la humildad de no suponer:
+            </p>
+
+            <div class="p-6 rounded-2xl bg-emerald-900 text-white shadow-lg space-y-2 border border-emerald-700">
+              <span class="text-xs font-black uppercase tracking-widest text-emerald-300 flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-4 h-4 text-emerald-300"></i> La Fórmula Dialógica Exacta:
+              </span>
+              <p class="text-xl sm:text-2xl md:text-3xl font-black text-emerald-50 leading-snug">
+                «¿Qué forma debe tomar mi ayuda para que responda a tu necesidad?»
+              </p>
+            </div>
+
+            <p class="text-base sm:text-lg text-[#515154] leading-relaxed pt-1">
+              <strong>Por qué transforma el vínculo:</strong> Esta formulación reconoce la soberanía emocional de la otra persona. Evita el paternalismo, no invade sus límites y le entrega el control para definir qué tipo de presencia o soporte le resulta realmente útil y reparador.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTÓN INFERIOR DE AVANCE -->
+      <div class="mt-8 flex justify-end">
+        <button class="btn-step-next inline-flex items-center gap-2.5 bg-purple-600 text-white font-extrabold px-8 py-3.5 rounded-full text-base shadow-lg hover:bg-purple-700 transition" data-next="5">
+          <span>Avanzar a Recursos Abiertos &amp; Licencia</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ================= PÁGINA 5: ESTACIÓN 4 (RECURSOS & LICENCIA) ============ -->
+  <!-- ========================================================================= -->
+  <div id="page-5" class="slide-page">
+    <div class="apple-card p-7 sm:p-10 mb-6">
+      <!-- CABECERA -->
+      <div class="flex items-center justify-between flex-wrap gap-4 pb-5 border-b border-black/5 mb-6">
+        <div class="flex items-center gap-3.5">
+          <span class="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white icon-box-3d shadow-blue-500/30 flex-shrink-0">
+            <i data-lucide="download" class="w-7 h-7"></i>
+          </span>
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-blue-800 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200/60">
+              Estación 4 de 4
+            </span>
+            <h2 class="font-extrabold text-2xl sm:text-3xl text-[#1D1D1F] mt-1">Recursos Abiertos y Licenciamiento</h2>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button class="btn-step-prev inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border border-black/10 font-bold text-xs sm:text-sm text-[#515154] hover:bg-black/5 transition" data-prev="4">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>Volver a Dilemas</span>
+          </button>
+          <button class="btn-step-next inline-flex items-center gap-2 bg-[#1D1D1F] text-white font-extrabold px-6 py-2.5 rounded-full text-xs sm:text-sm shadow-md hover:bg-purple-700 transition" data-next="1">
+            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            <span>Reiniciar REA</span>
+          </button>
+        </div>
+      </div>
+
+      <p class="text-base sm:text-lg text-[#333336] mb-8 leading-relaxed">
+        Este paquete pedagógico fue diseñado bajo la filosofía de la educación abierta. Docentes, formadores y estudiantes pueden 
+        <strong>retener, reutilizar, revisar, remezclar y redistribuir</strong> estos artefactos sin costo alguno, garantizando soberanía pedagógica y acceso universal.
+      </p>
+
+      <!-- CUADRÍCULA DE ARTEFACTOS DESCARGABLES -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <!-- Artefacto 1: Ficha de Memoria -->
+        <div class="apple-subcard p-6 sm:p-7 hover:shadow-xl transition group border border-purple-200/70 flex flex-col justify-between">
+          <div>
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-purple-600 text-white icon-box-3d flex items-center justify-center mb-5 group-hover:scale-105 transition shadow-lg shadow-purple-600/30">
+              <i data-lucide="file-text" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-black text-lg sm:text-xl text-[#1D1D1F]">Ficha de Memoria (PDF)</h3>
+            <p class="text-base text-[#515154] mt-2 mb-5 leading-relaxed">Síntesis visual atómica que replica exactamente los 5 pilares de la Estación 2, optimizada para lectura en móviles y descarga.</p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-black/5 flex-wrap">
+            <a href="./ficha_memoria_empatia.pdf?v=20261010_clean" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-base font-extrabold text-purple-700 hover:text-purple-900 hover:underline">
+              <span>Abrir PDF</span> <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+            <span class="text-gray-300">•</span>
+            <a href="./ficha_memoria_empatia.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-bold text-[#515154] hover:text-[#1D1D1F] hover:underline">
+              <span>Ver Web</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Artefacto 2: Guía de Reutilización Docente -->
+        <div class="apple-subcard p-6 sm:p-7 hover:shadow-xl transition group border border-emerald-200/70 flex flex-col justify-between">
+          <div>
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-emerald-600 text-white icon-box-3d flex items-center justify-center mb-5 group-hover:scale-105 transition shadow-lg shadow-emerald-600/30">
+              <i data-lucide="book-open" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-black text-lg sm:text-xl text-[#1D1D1F]">Guía Docente de Reuso (.DOCX)</h3>
+            <p class="text-base text-[#515154] mt-2 mb-5 leading-relaxed">Documento oficial editable con la plantilla MEED: metadatos, diseño DUA, orientaciones de remix y rúbrica formativa.</p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-black/5 flex-wrap">
+            <a href="./guia_reutilizacion_docente_rojas.docx" download class="inline-flex items-center gap-1.5 text-base font-extrabold text-emerald-700 hover:text-emerald-900 hover:underline">
+              <span>Descargar DOCX</span> <i data-lucide="download" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Artefacto 3: Video Máster en YouTube -->
+        <a href="https://www.youtube.com/watch?v=-AlHz1tpGz8" target="_blank" rel="noopener noreferrer" class="apple-subcard p-6 sm:p-7 hover:shadow-xl transition group border border-rose-200/70 flex flex-col justify-between">
+          <div>
+            <div class="w-13 h-13 p-3.5 rounded-2xl bg-rose-600 text-white icon-box-3d flex items-center justify-center mb-5 group-hover:scale-105 transition shadow-lg shadow-rose-600/30">
+              <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </div>
+            <h3 class="font-black text-lg sm:text-xl text-[#1D1D1F]">Cápsula Audiovisual Master</h3>
+            <p class="text-base text-[#515154] mt-2 mb-5 leading-relaxed">Video formativo 1080p con sonoridad EBU R128 y transcripción textual completa.</p>
+          </div>
+          <span class="text-base font-extrabold text-rose-700 group-hover:text-rose-900 group-hover:underline flex items-center gap-2 pt-3 border-t border-black/5">
+            Ver en YouTube <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- TABLA OFICIAL DE ATRIBUCIÓN Y PROCEDENCIA DE MEDIOS (EXIGENCIA EVALUACIÓN REA) -->
+      <div class="apple-subcard p-7 sm:p-9 border border-indigo-200/70 bg-gradient-to-br from-indigo-50/40 via-white to-purple-50/30 mb-8 shadow-sm">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white icon-box-3d flex items-center justify-center flex-shrink-0 shadow-md shadow-indigo-600/20">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-indigo-900 bg-indigo-100 px-3 py-0.5 rounded-full border border-indigo-200">
+              Transparencia de Derechos &amp; Licenciamiento
+            </span>
+            <h3 class="font-black text-xl sm:text-2xl text-[#1D1D1F] mt-1">
+              Atribución y Procedencia de Medios (Imágenes, Videos y Audios)
+            </h3>
+          </div>
+        </div>
+
+        <p class="text-base sm:text-lg text-[#424245] leading-relaxed mb-6">
+          En cumplimiento de los estándares internacionales para Recursos Educativos Abiertos y la grilla de evaluación MEED, se declara explícitamente el origen, autoría y régimen de libre distribución de todos los elementos multimedia integrados en este REA:
+        </p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-sm sm:text-base">
+            <thead>
+              <tr class="border-b-2 border-indigo-200/80 bg-white/80 text-[#1D1D1F]">
+                <th class="py-3 px-4 font-black">Tipo de Medio</th>
+                <th class="py-3 px-4 font-black">Elemento Integrado</th>
+                <th class="py-3 px-4 font-black">Autoría / Origen</th>
+                <th class="py-3 px-4 font-black">Régimen de Distribución</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-black/5 text-[#424245]">
+              <tr class="hover:bg-white/60 transition">
+                <td class="py-3.5 px-4 font-bold text-purple-900 flex items-center gap-2">
+                  <i data-lucide="video" class="w-4 h-4 text-purple-600"></i> Video / Narración
+                </td>
+                <td class="py-3.5 px-4 font-medium">Cápsula audiovisual 1080p con locución pedagógica</td>
+                <td class="py-3.5 px-4">Óscar Javier Rojas (guion y diseño instruccional)</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-flex items-center gap-1 font-bold text-emerald-800 bg-emerald-100/80 px-2.5 py-1 rounded-full text-xs">
+                    <i data-lucide="check" class="w-3 h-3"></i> Libre distribución (CC BY-SA 4.0 / YouTube Abierto)
+                  </span>
+                </td>
+              </tr>
+              <tr class="hover:bg-white/60 transition">
+                <td class="py-3.5 px-4 font-bold text-indigo-900 flex items-center gap-2">
+                  <i data-lucide="image" class="w-4 h-4 text-indigo-600"></i> Ilustraciones
+                </td>
+                <td class="py-3.5 px-4 font-medium">Personaje guía Lore (ilustración y avatares didácticos)</td>
+                <td class="py-3.5 px-4">Diseño y desarrollo original del recurso</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-flex items-center gap-1 font-bold text-emerald-800 bg-emerald-100/80 px-2.5 py-1 rounded-full text-xs">
+                    <i data-lucide="check" class="w-3 h-3"></i> Libre distribución bajo CC BY-SA 4.0
+                  </span>
+                </td>
+              </tr>
+              <tr class="hover:bg-white/60 transition">
+                <td class="py-3.5 px-4 font-bold text-amber-900 flex items-center gap-2">
+                  <i data-lucide="sparkles" class="w-4 h-4 text-amber-600"></i> Iconografía
+                </td>
+                <td class="py-3.5 px-4 font-medium">Iconos vectoriales del sistema interactivo</td>
+                <td class="py-3.5 px-4">Lucide Open Source Project &amp; YouTube SVG oficial</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-flex items-center gap-1 font-bold text-emerald-800 bg-emerald-100/80 px-2.5 py-1 rounded-full text-xs">
+                    <i data-lucide="check" class="w-3 h-3"></i> Licencia Permisiva ISC / MIT (Dominio público / Abierto)
+                  </span>
+                </td>
+              </tr>
+              <tr class="hover:bg-white/60 transition">
+                <td class="py-3.5 px-4 font-bold text-rose-900 flex items-center gap-2">
+                  <i data-lucide="music" class="w-4 h-4 text-rose-600"></i> Audio / Sonoridad
+                </td>
+                <td class="py-3.5 px-4 font-medium">Banda sonora de atmósfera y masterización sonora EBU R128</td>
+                <td class="py-3.5 px-4">Producción original calibrada a -16 LUFS</td>
+                <td class="py-3.5 px-4">
+                  <span class="inline-flex items-center gap-1 font-bold text-emerald-800 bg-emerald-100/80 px-2.5 py-1 rounded-full text-xs">
+                    <i data-lucide="check" class="w-3 h-3"></i> Libre distribución bajo CC BY-SA 4.0
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECCIÓN DE LICENCIA OFICIAL CREATIVE COMMONS -->
+      <div id="licencia" class="apple-subcard p-7 sm:p-9 border-l-8 border-l-emerald-600 bg-emerald-50/30 mb-8 shadow-sm">
+        <div class="flex flex-col sm:flex-row gap-6 items-start">
+          <div class="flex flex-row sm:flex-col items-center gap-3 flex-shrink-0">
+            <div class="w-14 h-14 rounded-2xl bg-[#1D1D1F] text-white icon-box-3d flex items-center justify-center shadow-lg">
+              <i data-lucide="creative-commons" class="w-8 h-8 text-white"></i>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="flex items-center gap-1.5 bg-[#1D1D1F] text-white px-3.5 py-1.5 rounded-xl text-xs font-black shadow-sm">
+                <i data-lucide="user" class="w-4 h-4"></i> BY
+              </div>
+              <div class="flex items-center gap-1.5 bg-[#1D1D1F] text-white px-3.5 py-1.5 rounded-xl text-xs font-black shadow-sm">
+                <i data-lucide="refresh-cw" class="w-4 h-4"></i> SA
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-emerald-900 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300">
+                Licencia Abierta Internacional
+              </span>
+              <h3 class="font-black text-xl sm:text-2xl text-[#1D1D1F] mt-2">
+                Creative Commons Atribución-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)
+              </h3>
+            </div>
+
+            <p class="text-base sm:text-lg text-[#333336] leading-relaxed">
+              <strong>Autoría académica exclusiva:</strong> Óscar Javier Rojas. <br>
+              Usted es libre de <strong>compartir</strong> (copiar y redistribuir el material en cualquier medio o soporte) y <strong>adaptar</strong> (remezclar, transformar y construir a partir de este recurso para cualquier propósito educativo o formativo), bajo las siguientes condiciones:
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-4 pt-1">
+              <div class="p-4 rounded-2xl bg-white border border-emerald-200 shadow-sm flex items-start gap-3">
+                <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold">
+                  <i data-lucide="user-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <strong class="text-base font-extrabold text-[#1D1D1F] block">Atribución (BY):</strong>
+                  <p class="text-sm sm:text-base text-[#515154] leading-relaxed">Debe dar crédito de manera adecuada, brindar un enlace visible a la licencia e indicar si se han realizado modificaciones.</p>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-emerald-200 shadow-sm flex items-start gap-3">
+                <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 font-bold">
+                  <i data-lucide="git-fork" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <strong class="text-base font-extrabold text-[#1D1D1F] block">CompartirIgual (SA):</strong>
+                  <p class="text-sm sm:text-base text-[#515154] leading-relaxed">Si remezcla, transforma o crea a partir de este material, debe distribuir su contribución bajo la misma licencia del original.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REFERENCIAS ACADÉMICAS COMPLETAS (FORMATO APA) -->
+      <div class="apple-subcard p-7 sm:p-9 border border-black/5 shadow-sm">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-800 icon-box-3d flex items-center justify-center flex-shrink-0 shadow-sm">
+            <i data-lucide="bookmark" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-black text-xl sm:text-2xl text-[#1D1D1F]">Referencias Académicas y Marco Teórico</h3>
+            <span class="text-xs sm:text-sm text-[#6E6E73] font-medium">Fuentes canónicas de la Maestría en Enseñanza en Entornos Digitales (MEED)</span>
+          </div>
+        </div>
+
+        <ul class="text-base sm:text-lg text-[#333336] space-y-3.5 list-disc pl-6 leading-relaxed">
+          <li>Brown, B. &amp; Grant, A. (2022). <em>Empathy vs. Enmeshment (Part 4 of 6)</em>. Dare to Lead Podcast.</li>
+          <li>Bueno, D. (2019). <em>Neurociencia para educadores</em>. Barcelona: Editorial Octaedro.</li>
+          <li>Dussel, I. (2011). <em>Aprender y enseñar en la cultura digital</em>. Fundación Santillana / FLACSO.</li>
+          <li>Goleman, D. (1995). <em>Inteligencia Emocional</em>. Barcelona: Editorial Kairós.</li>
+          <li>Rizzolatti, G. &amp; Sinigaglia, C. (2006). <em>Las neuronas espejo: los mecanismos de la empatía emocional</em>. Barcelona: Paidós.</li>
+          <li>Rogers, C. (1961). <em>El proceso de convertirse en persona: mi técnica terapéutica</em>. Buenos Aires: Paidós.</li>
+          <li>Rosenberg, M. (2003). <em>Comunicación No Violenta: un lenguaje de vida</em>. Buenos Aires: Editorial Gran Aldea.</li>
+          <li>Schein, E. (2013). <em>Humble Inquiry: The Gentle Art of Asking Instead of Telling</em>. San Francisco: Berrett-Koehler.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ PIE DE PÁGINA LIMPIO ============ -->
+<footer class="bg-[#1D1D1F] text-white py-8 mt-10 border-t border-white/10">
+  <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm sm:text-base text-gray-300">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-xl bg-purple-600 text-white flex items-center justify-center font-bold icon-box-3d shadow-purple-500/30 flex-shrink-0">
+        <i data-lucide="heart" class="w-4 h-4"></i>
+      </div>
+      <span class="font-semibold text-white">Empatía: La Ciencia y el Arte de Conectar · Recurso Educativo Abierto (REA)</span>
+    </div>
+    <span class="font-medium text-gray-300">Autoría: Óscar Javier Rojas · Licenciado bajo CC BY-SA 4.0</span>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS DE NAVEGACIÓN Y FEEDBACK ============ -->
+<script>
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  // 1. Alternancia del panel técnico DUA
+  const toggleDuaBtn = document.getElementById('toggleDuaBtn');
+  const duaPanel = document.getElementById('duaPanel');
+  const duaChevron = document.getElementById('duaChevron');
+  if (toggleDuaBtn && duaPanel) {
+    toggleDuaBtn.addEventListener('click', () => {
+      duaPanel.classList.toggle('hidden');
+      duaChevron.classList.toggle('rotate-180');
+    });
+  }
+
+  // 2. Control de navegación de las 5 páginas / diapositivas
+  let currentSlide = 1;
+  const totalSlides = 5;
+  const slidePages = {
+    1: document.getElementById('page-1'),
+    2: document.getElementById('page-2'),
+    3: document.getElementById('page-3'),
+    4: document.getElementById('page-4'),
+    5: document.getElementById('page-5')
+  };
+  const stepPills = document.querySelectorAll('.step-pill');
+  const slideCounterText = document.getElementById('slideCounterText');
+
+  function goToSlide(slideNum) {
+    if (slideNum < 1 || slideNum > totalSlides) return;
+    currentSlide = slideNum;
+
+    // Actualizar visualización de páginas
+    Object.keys(slidePages).forEach(num => {
+      const page = slidePages[num];
+      if (parseInt(num, 10) === currentSlide) {
+        page.classList.add('active');
+      } else {
+        page.classList.remove('active');
+      }
+    });
+
+    // Lazy load del iframe de YouTube al entrar a la página 2 para asegurar renderizado HD en Safari
+    const ytIframe = document.getElementById('ytVideoPlayer');
+    if (ytIframe && currentSlide === 2) {
+      if (!ytIframe.getAttribute('src') || ytIframe.getAttribute('src') === '') {
+        ytIframe.setAttribute('src', ytIframe.getAttribute('data-src'));
+      }
+    }
+
+    // Actualizar píldoras de navegación
+    stepPills.forEach((pill, idx) => {
+      if (idx + 1 === currentSlide) {
+        pill.classList.add('active');
+        pill.classList.remove('text-[#515154]');
+      } else {
+        pill.classList.remove('active');
+        pill.classList.add('text-[#515154]');
+      }
+    });
+
+    // Actualizar contador superior
+    if (slideCounterText) {
+      slideCounterText.textContent = `PÁGINA ${currentSlide} DE ${totalSlides}`;
+    }
+
+    // Scroll suave al inicio
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Enlaces de la barra superior
+  stepPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const targetSlide = parseInt(pill.dataset.goto, 10);
+      goToSlide(targetSlide);
+    });
+  });
+
+  // Botones de avance (Next)
+  document.querySelectorAll('.btn-step-next').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const nextSlide = parseInt(btn.dataset.next, 10);
+      goToSlide(nextSlide);
+    });
+  });
+
+  // Botones de retorno (Prev)
+  document.querySelectorAll('.btn-step-prev').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const prevSlide = parseInt(btn.dataset.prev, 10);
+      goToSlide(prevSlide);
+    });
+  });
+
+  // 4. Reproductor Facade blindado contra Error 153 en Safari macOS
+  const videoContainer = document.getElementById('videoContainer');
+  const iframeMountPoint = document.getElementById('iframeMountPoint');
+  if (videoContainer && iframeMountPoint) {
+    videoContainer.addEventListener('click', () => {
+      if (iframeMountPoint.innerHTML.trim() === '') {
+        iframeMountPoint.innerHTML = `
+          <iframe 
+            src="https://www.youtube.com/embed/-AlHz1tpGz8?autoplay=1&rel=0&modestbranding=1&playsinline=1" 
+            title="Microlección: La Ciencia y el Arte de la Empatía" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen 
+            class="w-full h-full"
+          ></iframe>
+        `;
+        iframeMountPoint.classList.remove('hidden');
+      }
+    });
+  }
+  // 5. DINÁMICA 1: LA EMPATÍA QUE ESPERÁBAMOS (CASO COTIDIANO)
+  const caseFeedbacks = {
+    A: {
+      correct: false,
+      concept: "Apropiación Dramática",
+      tagColor: "bg-purple-100 text-purple-900 border border-purple-200",
+      title: "Respuesta A: Apropiación y Competencia de Sacrificios",
+      subtitle: "Robo del foco de atención y descalificación",
+      desc: "Le quita el protagonismo a quien comparte su vulnerabilidad para convertir la conversación en una competencia sobre quién ha sufrido más en la vida. En lugar de ofrecer escucha al cansancio actual, lo anula comparándolo con sus propias vivencias pasadas.",
+      tip: "Cuando un colega o estudiante comparte su sobrecarga, responder relatando lo duro de nuestra propia trayectoria anula la confianza. La empatía no compite por ver quién tiene la carga más pesada.",
+      tipBoxClass: "bg-purple-50 border border-purple-200 text-purple-950",
+      tipLabelClass: "text-purple-900"
+    },
+    B: {
+      correct: false,
+      concept: "Minimización y Juicio Moral",
+      tagColor: "bg-amber-100 text-amber-900 border border-amber-200",
+      title: "Respuesta B: Minimización y Positividad Forzada",
+      subtitle: "Descalificación del malestar real con culpa encubierta",
+      desc: "Descalifica el agotamiento legítimo calificándolo de 'desagradecido' y ofrece un parche mágico superficial ('tomar un té y pensar positivo') en lugar de reconocer la carga cognitiva y el desgaste real de la persona.",
+      tip: "Decir 'no te quejes, que otros están peor' silencia la experiencia subjetiva de quien confía en nosotros. Validar el cansancio no es fomentar el pesimismo; es brindar un piso de realidad y respeto.",
+      tipBoxClass: "bg-amber-50 border border-amber-200 text-amber-950",
+      tipLabelClass: "text-amber-900"
+    },
+    C: {
+      correct: false,
+      concept: "Indiferencia y Amenaza",
+      tagColor: "bg-rose-100 text-rose-900 border border-rose-200",
+      title: "Respuesta C: Indiferencia y Reproche Punitivo",
+      subtitle: "Castigo a la vulnerabilidad y ruptura de la seguridad psicológica",
+      desc: "Transforma la apertura sincera en una amenaza tajante ('renuncia de una vez') y en un reproche ('nadie te mandó a meterte en eso'). Bloquea cualquier posibilidad de diálogo y aísla a la persona en su dificultad.",
+      tip: "Ante momentos de alta exigencia, responder con amenazas de abandono o culpabilización quiebra la seguridad psicológica. Quien acompaña con empatía sostiene y orienta, no empuja al desánimo.",
+      tipBoxClass: "bg-rose-50 border border-rose-200 text-rose-950",
+      tipLabelClass: "text-rose-900"
+    },
+    D: {
+      correct: true,
+      concept: "Validación Empática Auténtica",
+      tagColor: "bg-emerald-100 text-emerald-900 border border-emerald-300",
+      title: "¡Respuesta D: Validación Empática y Presencia Serena!",
+      subtitle: "El Principio del Muelle Firme y el Reconocimiento Activo",
+      desc: "La persona no juzga, no compite y no minimiza. Aplica con maestría el principio del muelle firme: ofrece un espacio seguro de contención ('ven, descansa'), reconoce con precisión el esfuerzo específico ('concentrarse horas en la pantalla y atender llamadas') y propone una pausa reparadora sin imponer presiones inmediatas.",
+      tip: "Esta es la clave de la empatía profesional y humana: no hace falta resolver de golpe toda la complejidad técnica en ese instante; lo esencial es validar la emoción para que la persona recupere la calma, la claridad y su propia autonomía.",
+      tipBoxClass: "bg-emerald-50 border border-emerald-300 text-emerald-950",
+      tipLabelClass: "text-emerald-900"
+    }
+  };
+
+  window.revealCaseOption = function(opt) {
+    const fbBox = document.getElementById('case-feedback-box');
+    const data = caseFeedbacks[opt];
+    const letters = ['A', 'B', 'C', 'D'];
+
+    letters.forEach(letter => {
+      const btn = document.getElementById(`case-btn-${letter}`);
+      if (btn) btn.classList.remove('state-correct', 'state-wrong');
+    });
+
+    const activeBtn = document.getElementById(`case-btn-${opt}`);
+    const iconBox = document.getElementById('case-fb-icon-box');
+    const icon = document.getElementById('case-fb-icon');
+
+    if (data.correct) {
+      if (activeBtn) activeBtn.classList.add('state-correct');
+      fbBox.className = "block mt-6 p-6 sm:p-7 rounded-2xl bg-emerald-50/80 border-2 border-emerald-400 shadow-md";
+      iconBox.className = "w-13 h-13 rounded-2xl bg-emerald-600 text-white icon-box-3d flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/30";
+      icon.setAttribute('data-lucide', 'check-circle-2');
+    } else {
+      if (activeBtn) activeBtn.classList.add('state-wrong');
+      const correctBtn = document.getElementById('case-btn-D');
+      if (correctBtn) correctBtn.classList.add('state-correct');
+      fbBox.className = "block mt-6 p-6 sm:p-7 rounded-2xl bg-rose-50/80 border-2 border-rose-300 shadow-md";
+      iconBox.className = "w-13 h-13 rounded-2xl bg-rose-600 text-white icon-box-3d flex items-center justify-center shrink-0 shadow-lg shadow-rose-500/30";
+      icon.setAttribute('data-lucide', 'alert-triangle');
+    }
+
+    document.getElementById('case-fb-title').textContent = data.title;
+    document.getElementById('case-fb-subtitle').textContent = data.subtitle;
+    document.getElementById('case-fb-desc').textContent = data.desc;
+    document.getElementById('case-fb-tag').textContent = data.concept;
+    document.getElementById('case-fb-tag').className = `text-xs sm:text-sm font-extrabold uppercase px-3.5 py-1 rounded-full ${data.tagColor}`;
+    
+    document.getElementById('case-fb-tip').textContent = data.tip;
+    document.getElementById('case-fb-tip-box').className = `p-4 sm:p-5 rounded-2xl space-y-1.5 ${data.tipBoxClass}`;
+    document.getElementById('case-fb-tip-label').className = `flex items-center gap-2 text-base font-bold ${data.tipLabelClass}`;
+
+    fbBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (window.lucide) lucide.createIcons();
+  };
+
+  // 6. DINÁMICA 2: EL DECODIFICADOR DE EXPRESIONES (TRADUCTOR EMPÁTICO)
+  const translatorPhrases = [
+    {
+      id: 0,
+      pattern: "Patrón de Autojustificación Reactiva",
+      toxic: "«Pues si ya sabe cómo soy yo, ¿para qué me busca?»",
+      trap: "<strong>La trampa encubierta:</strong> Trasladar la responsabilidad al interlocutor por intentar comunicarse, excusando la propia falta de autorregulación como si fuera una condición inmutable que los demás deben tolerar.",
+      empathy: "«Reconozco que este tema me cuesta y a veces reacciono a la defensiva; conversemos con calma para encontrar una salida juntos».",
+      why: "Desactiva la confrontación asumiendo plena responsabilidad personal sobre la propia reacción. Abre un espacio seguro para el diálogo profesional sin orgullo ni victimismo."
+    },
+    {
+      id: 1,
+      pattern: "Abuso de Poder y Descarte",
+      toxic: "«¡Si no le gusta cómo se hacen las cosas, ahí está la puerta!»",
+      trap: "<strong>La trampa encubierta:</strong> Utilizar el miedo a la desvinculación para sofocar el malestar o la sugerencia legítima. Destruye la seguridad psicológica y convierte la coordinación en imposición jerárquica.",
+      empathy: "«Comprendo que el ritmo de trabajo y las exigencias están muy intensas; cuéntame qué aspecto te genera mayor sobrecarga en este momento».",
+      why: "Sustituye la amenaza de exclusión por la indagación apreciativa. Reconoce la presión compartida y busca identificar la causa raíz de la sobrecarga antes de que la persona se desgaste."
+    },
+    {
+      id: 2,
+      pattern: "Falsa Cortesía y Crítica Destructiva",
+      toxic: "«Con todo respeto, sin ánimo de ofender, pero esta entrega quedó impresentable...»",
+      trap: "<strong>La trampa encubierta:</strong> Suponer que anteponer la frase «con todo respeto» otorga derecho a descalificar de manera hiriente el trabajo ajeno. El respeto auténtico no requiere advertencias que justifiquen el agravio.",
+      empathy: "«Valoro el esfuerzo que dedicaste para avanzar en esta entrega; revisemos juntos qué ajustes técnicos podemos incorporar para asegurar la calidad final».",
+      why: "Aplica el principio formativo de retroalimentación: reconoce primero el compromiso y el avance real, y propone una colaboración constructiva en lugar de emitir un juicio descalificador."
+    },
+    {
+      id: 3,
+      pattern: "Minimización y Descalificación Emocional",
+      toxic: "«Te estás ahogando en un vaso de agua, ¡supéralo ya!»",
+      trap: "<strong>La trampa encubierta:</strong> Medir la magnitud de un problema ajeno desde la propia comodidad o experiencia previa, ignorando que lo que para alguien representa una dificultad menor, para quien la atraviesa puede constituir una verdadera crisis.",
+      empathy: "«Para ti esta situación es muy importante y difícil en este momento; respeto lo que sientes. Tómate el tiempo necesario y cuenta conmigo».",
+      why: "Aplica la sabiduría del «Como Si» de Carl Rogers: no evalúa el dolor del otro con la propia medida; valida la intensidad emocional del presente y brinda contención sin presionar ni exigir rapidez."
+    }
+  ];
+
+  let currentTransIndex = 0;
+
+  window.setTranslatorPhrase = function(index) {
+    currentTransIndex = index;
+    const item = translatorPhrases[index];
+
+    // Actualizar pestañas
+    for (let i = 0; i < translatorPhrases.length; i++) {
+      const tab = document.getElementById(`trans-tab-${i}`);
+      if (tab) {
+        if (i === index) {
+          tab.className = "p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50 text-left flex items-center gap-2.5 transition shadow-sm";
+        } else {
+          tab.className = "p-3.5 rounded-2xl border border-black/10 bg-white text-left flex items-center gap-2.5 transition cursor-pointer hover:bg-black/5";
+        }
+      }
+    }
+
+    // Inyectar datos en la tarjeta
+    document.getElementById('trans-pattern-tag').textContent = item.pattern;
+    document.getElementById('trans-toxic-text').textContent = item.toxic;
+    document.getElementById('trans-toxic-trap').innerHTML = item.trap;
+    document.getElementById('trans-empathy-text').textContent = item.empathy;
+    document.getElementById('trans-empathy-why').textContent = item.why;
+
+    // Resetear revelación
+    document.getElementById('trans-result-card').classList.add('hidden');
+    document.getElementById('trans-action-zone').classList.remove('hidden');
+
+    if (window.lucide) lucide.createIcons();
+  };
+
+  window.revealTranslatorCard = function() {
+    document.getElementById('trans-action-zone').classList.add('hidden');
+    const resultCard = document.getElementById('trans-result-card');
+    resultCard.classList.remove('hidden');
+    resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (window.lucide) lucide.createIcons();
+  };
+
+  // Inicializar traductor en frase 0
+  setTranslatorPhrase(0);
+</script>
+</body>
+</html>
